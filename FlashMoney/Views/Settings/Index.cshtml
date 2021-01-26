@@ -1,0 +1,1721 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Education access - Settings</title>
+
+    <link rel="shortcut icon" href="~/assets/img/png/fav-icon.png" type="image/x-icon" />
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/assets/components/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/assets/components/animate/animate.css" />
+    <link rel="stylesheet" href="~/assets/components/loadawesome/loaders.css" />
+    <link rel="stylesheet" href="~/assets/css/style.min.css" />
+</head>
+
+<body class="page admin">
+    <nav class="sidebar">
+        <div class="logo">
+            <img src="~/assets/img/svg/logo-icon.png" />
+        </div>
+        <div class="content">
+            @if (ViewBag.H == 1)
+            {
+                <ul>
+                    <li>
+                        <a asp-controller="home" asp-action="index">
+                            <i class="icon">
+                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                    <g opacity="0.3">
+                                        <path d="M9 13.2002H15V19.2002H18V10.1767L12 5.69627L6 10.1767V19.2002H9V13.2002ZM3.98438 21.2002V9.20019L12 3.2002L20.0156 9.20019V21.2002H3.98438Z"
+                                                fill="#2F1343" />
+                                    </g>
+                                </svg>
+                            </i>
+                            <span>Overview</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Test">
+                            <i class="icon">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-stopwatch-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M5.5.5A.5.5 0 0 1 6 0h4a.5.5 0 0 1 0 1H9v1.07A7.002 7.002 0 0 1 8 16 7 7 0 0 1 7 2.07V1H6a.5.5 0 0 1-.5-.5zm3 4.5a.5.5 0 0 0-1 0v3.5h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5V5z" />
+                                </svg>
+                            </i>
+                            <span>Test</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Scholarship">
+                            <i class="icon">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-journal-album" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1H2a2 2 0 0 1 2-2z" />
+                                    <path d="M2 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm3-6.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-5z" />
+                                    <path fill-rule="evenodd" d="M6 11.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z" />
+                                </svg>
+                            </i>
+                            <span>Scholarship</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Approval">
+                            <i class="icon">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-journal-arrow-up" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1H2a2 2 0 0 1 2-2z" />
+                                    <path d="M2 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2z" />
+                                    <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l1.646 1.647a.5.5 0 0 0 .708-.708l-2.5-2.5a.5.5 0 0 0-.708 0l-2.5 2.5a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5z" />
+                                </svg>
+                            </i>
+                            <span>Approval</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Leaderboard">
+                            <i class="icon">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-award" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M9.669.864L8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193l-1.51-.229L8 1.126l-1.355.702-1.51.229-.684 1.365-1.086 1.072L3.614 6l-.25 1.506 1.087 1.072.684 1.365 1.51.229L8 10.874l1.356-.702 1.509-.229.684-1.365 1.086-1.072L12.387 6l.248-1.506-1.086-1.072-.684-1.365z" />
+                                    <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+                                </svg>
+                            </i>
+                            <span>Leaderboard</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a asp-controller="home" asp-action="Settings">
+                            <i class="icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                    <g opacity="0.3">
+                                        <path d="M12.0003 8.00048C14.2094 8.00048 16.0003 9.79134 16.0003 12.0005C16.0003 14.2096 14.2094 16.0005 12.0003 16.0005C9.79115 16.0005 8.00029 14.2096 8.00029 12.0005C8.00029 9.79134 9.79115 8.00048 12.0003 8.00048ZM12.0003 10.0005C10.8957 10.0005 10.0003 10.8959 10.0003 12.0005C10.0003 13.1051 10.8957 14.0005 12.0003 14.0005C13.1049 14.0005 14.0003 13.1051 14.0003 12.0005C14.0003 10.8959 13.1049 10.0005 12.0003 10.0005ZM9.99967 21.9985C9.74967 21.9985 9.54369 21.8156 9.5057 21.5775L9.1307 18.9276C8.52169 18.6755 7.95667 18.3405 7.44068 17.9445L4.95166 18.9475C4.72569 19.0345 4.46367 18.9465 4.33969 18.7306L2.33969 15.2665C2.21469 15.0505 2.26966 14.7805 2.45769 14.6276L4.56969 12.9745L4.49968 11.9985L4.56969 11.0226L2.45769 9.36848C2.26966 9.21655 2.21469 8.94653 2.33969 8.73054L4.33969 5.26652C4.46367 5.05053 4.72569 4.96256 4.95166 5.04955L7.43968 6.05257C7.95567 5.65657 8.52067 5.32153 9.1307 5.06852L9.5057 2.4196C9.54369 2.18148 9.74967 1.99854 9.99967 1.99854L14.0009 2.00049C14.2509 2.00049 14.4569 2.18344 14.4949 2.42155L14.8699 5.07047C15.4799 5.32348 16.0449 5.65852 16.5609 6.05452L19.0489 5.05151C19.2749 4.96451 19.5369 5.05248 19.6609 5.26846L21.6609 8.73249C21.7859 8.94848 21.7309 9.2185 21.5429 9.37043L19.4309 11.0245L19.5009 12.0005L19.4309 12.9765L21.5429 14.6296C21.7309 14.7825 21.7859 15.0525 21.6609 15.2685L19.6609 18.7325C19.5369 18.9485 19.2749 19.0365 19.0489 18.9495L16.5599 17.9465C16.0439 18.3425 15.4789 18.6775 14.8699 18.9295L14.4949 21.5794C14.4569 21.8176 14.2509 22.0005 14.0009 22.0005L9.99967 21.9985ZM11.2503 4.0005L10.8843 6.61377C9.68292 6.86137 8.62463 7.50078 7.84895 8.39254L5.43814 7.35242L4.68814 8.65146L6.80101 10.2029C6.39926 11.3677 6.40005 12.6406 6.80337 13.8049L4.68493 15.3609L5.43493 16.6599L7.85559 15.6161C8.62862 16.5015 9.68077 17.137 10.8748 17.3853L11.2439 20.0174L12.7567 20.0194L13.1258 17.3872C14.3198 17.1389 15.372 16.5034 16.145 15.618L18.5657 16.6619L19.3157 15.3628L17.1972 13.8069C17.6005 12.6425 17.6013 11.3697 17.1996 10.2049L19.3124 8.65341L18.5624 7.35437L16.1516 8.39448C15.3759 7.50273 14.3177 6.86332 13.1163 6.61572L12.7503 4.00245L11.2503 4.0005Z"
+                                                fill="#2F1343" />
+                                    </g>
+                                </svg>
+
+                            </i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            }
+            @if (ViewBag.H == 2)
+            {
+                <ul>
+                    <li class="active">
+                        <a asp-controller="Sponsors" asp-action="index">
+                            <i class="icon">
+                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                    <g opacity="0.3">
+                                        <path d="M9 13.2002H15V19.2002H18V10.1767L12 5.69627L6 10.1767V19.2002H9V13.2002ZM3.98438 21.2002V9.20019L12 3.2002L20.0156 9.20019V21.2002H3.98438Z"
+                                                fill="#2F1343" />
+                                    </g>
+                                </svg>
+                            </i>
+                            <span>Overview</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Sponsors" asp-action="Scholarship">
+                            <i class="icon">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-journal-album" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1H2a2 2 0 0 1 2-2z" />
+                                    <path d="M2 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm3-6.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-5z" />
+                                    <path fill-rule="evenodd" d="M6 11.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z" />
+                                </svg>
+                            </i>
+                            <span>Scholarship</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Sponsors" asp-action="Applicant">
+                            <i class="icon">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z" />
+                                    <path d="M13.784 14c-.497-1.27-1.988-3-5.784-3s-5.287 1.73-5.784 3h11.568z" />
+                                    <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg>
+                            </i>
+                            <span>Applicant</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Sponsors" asp-action="Leaderboard">
+                            <i class="icon">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-award" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M9.669.864L8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193l-1.51-.229L8 1.126l-1.355.702-1.51.229-.684 1.365-1.086 1.072L3.614 6l-.25 1.506 1.087 1.072.684 1.365 1.51.229L8 10.874l1.356-.702 1.509-.229.684-1.365 1.086-1.072L12.387 6l.248-1.506-1.086-1.072-.684-1.365z" />
+                                    <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+                                </svg>
+                            </i>
+                            <span>Leaderboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Sponsors" asp-action="Settings">
+                            <i class="icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                    <g opacity="0.3">
+                                        <path d="M12.0003 8.00048C14.2094 8.00048 16.0003 9.79134 16.0003 12.0005C16.0003 14.2096 14.2094 16.0005 12.0003 16.0005C9.79115 16.0005 8.00029 14.2096 8.00029 12.0005C8.00029 9.79134 9.79115 8.00048 12.0003 8.00048ZM12.0003 10.0005C10.8957 10.0005 10.0003 10.8959 10.0003 12.0005C10.0003 13.1051 10.8957 14.0005 12.0003 14.0005C13.1049 14.0005 14.0003 13.1051 14.0003 12.0005C14.0003 10.8959 13.1049 10.0005 12.0003 10.0005ZM9.99967 21.9985C9.74967 21.9985 9.54369 21.8156 9.5057 21.5775L9.1307 18.9276C8.52169 18.6755 7.95667 18.3405 7.44068 17.9445L4.95166 18.9475C4.72569 19.0345 4.46367 18.9465 4.33969 18.7306L2.33969 15.2665C2.21469 15.0505 2.26966 14.7805 2.45769 14.6276L4.56969 12.9745L4.49968 11.9985L4.56969 11.0226L2.45769 9.36848C2.26966 9.21655 2.21469 8.94653 2.33969 8.73054L4.33969 5.26652C4.46367 5.05053 4.72569 4.96256 4.95166 5.04955L7.43968 6.05257C7.95567 5.65657 8.52067 5.32153 9.1307 5.06852L9.5057 2.4196C9.54369 2.18148 9.74967 1.99854 9.99967 1.99854L14.0009 2.00049C14.2509 2.00049 14.4569 2.18344 14.4949 2.42155L14.8699 5.07047C15.4799 5.32348 16.0449 5.65852 16.5609 6.05452L19.0489 5.05151C19.2749 4.96451 19.5369 5.05248 19.6609 5.26846L21.6609 8.73249C21.7859 8.94848 21.7309 9.2185 21.5429 9.37043L19.4309 11.0245L19.5009 12.0005L19.4309 12.9765L21.5429 14.6296C21.7309 14.7825 21.7859 15.0525 21.6609 15.2685L19.6609 18.7325C19.5369 18.9485 19.2749 19.0365 19.0489 18.9495L16.5599 17.9465C16.0439 18.3425 15.4789 18.6775 14.8699 18.9295L14.4949 21.5794C14.4569 21.8176 14.2509 22.0005 14.0009 22.0005L9.99967 21.9985ZM11.2503 4.0005L10.8843 6.61377C9.68292 6.86137 8.62463 7.50078 7.84895 8.39254L5.43814 7.35242L4.68814 8.65146L6.80101 10.2029C6.39926 11.3677 6.40005 12.6406 6.80337 13.8049L4.68493 15.3609L5.43493 16.6599L7.85559 15.6161C8.62862 16.5015 9.68077 17.137 10.8748 17.3853L11.2439 20.0174L12.7567 20.0194L13.1258 17.3872C14.3198 17.1389 15.372 16.5034 16.145 15.618L18.5657 16.6619L19.3157 15.3628L17.1972 13.8069C17.6005 12.6425 17.6013 11.3697 17.1996 10.2049L19.3124 8.65341L18.5624 7.35437L16.1516 8.39448C15.3759 7.50273 14.3177 6.86332 13.1163 6.61572L12.7503 4.00245L11.2503 4.0005Z"
+                                                fill="#2F1343" />
+                                    </g>
+                                </svg>
+
+                            </i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            }
+            @if (ViewBag.H == 3)
+            {
+                <ul>
+                    <li>
+                        <a asp-controller="Admin" asp-action="index">
+                            <i class="icon">
+                                <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                    <g opacity="0.3">
+                                        <path d="M9 13.2002H15V19.2002H18V10.1767L12 5.69627L6 10.1767V19.2002H9V13.2002ZM3.98438 21.2002V9.20019L12 3.2002L20.0156 9.20019V21.2002H3.98438Z"
+                                                fill="#2F1343" />
+                                    </g>
+                                </svg>
+                            </i>
+                            <span>Overview</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="student">
+                            <i class="icon">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z" />
+                                    <path d="M13.784 14c-.497-1.27-1.988-3-5.784-3s-5.287 1.73-5.784 3h11.568z" />
+                                    <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                </svg>
+                            </i>
+                            <span>Student</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a asp-controller="Admin" asp-action="Sponsor">
+                            <i class="icon">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-badge" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M12 1H4a1 1 0 0 0-1 1v11.755S4 12 8 12s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+                                    <path fill-rule="evenodd" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z" />
+                                </svg>
+                            </i>
+                            <span>Sponsor</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="Scholarship">
+                            <i class="icon">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-journal-album" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1H2a2 2 0 0 1 2-2z" />
+                                    <path d="M2 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm3-6.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-5z" />
+                                    <path fill-rule="evenodd" d="M6 11.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z" />
+                                </svg>
+                            </i>
+                            <span>Scholarship</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="Subscription">
+                            <i class="icon">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cash-stack" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14 3H1a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1h-1z" />
+                                    <path fill-rule="evenodd" d="M15 5H1v8h14V5zM1 4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H1z" />
+                                    <path d="M13 5a2 2 0 0 0 2 2V5h-2zM3 5a2 2 0 0 1-2 2V5h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 13a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
+                                </svg>
+                            </i>
+                            <span>Subscription</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="Leaderboard">
+                            <i class="icon">
+                                <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-award" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" d="M9.669.864L8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193l-1.51-.229L8 1.126l-1.355.702-1.51.229-.684 1.365-1.086 1.072L3.614 6l-.25 1.506 1.087 1.072.684 1.365 1.51.229L8 10.874l1.356-.702 1.509-.229.684-1.365 1.086-1.072L12.387 6l.248-1.506-1.086-1.072-.684-1.365z" />
+                                    <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+                                </svg>
+                            </i>
+                            <span>Leaderboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a asp-controller="Admin" asp-action="Settings">
+                            <i class="icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                    <g opacity="0.3">
+                                        <path d="M12.0003 8.00048C14.2094 8.00048 16.0003 9.79134 16.0003 12.0005C16.0003 14.2096 14.2094 16.0005 12.0003 16.0005C9.79115 16.0005 8.00029 14.2096 8.00029 12.0005C8.00029 9.79134 9.79115 8.00048 12.0003 8.00048ZM12.0003 10.0005C10.8957 10.0005 10.0003 10.8959 10.0003 12.0005C10.0003 13.1051 10.8957 14.0005 12.0003 14.0005C13.1049 14.0005 14.0003 13.1051 14.0003 12.0005C14.0003 10.8959 13.1049 10.0005 12.0003 10.0005ZM9.99967 21.9985C9.74967 21.9985 9.54369 21.8156 9.5057 21.5775L9.1307 18.9276C8.52169 18.6755 7.95667 18.3405 7.44068 17.9445L4.95166 18.9475C4.72569 19.0345 4.46367 18.9465 4.33969 18.7306L2.33969 15.2665C2.21469 15.0505 2.26966 14.7805 2.45769 14.6276L4.56969 12.9745L4.49968 11.9985L4.56969 11.0226L2.45769 9.36848C2.26966 9.21655 2.21469 8.94653 2.33969 8.73054L4.33969 5.26652C4.46367 5.05053 4.72569 4.96256 4.95166 5.04955L7.43968 6.05257C7.95567 5.65657 8.52067 5.32153 9.1307 5.06852L9.5057 2.4196C9.54369 2.18148 9.74967 1.99854 9.99967 1.99854L14.0009 2.00049C14.2509 2.00049 14.4569 2.18344 14.4949 2.42155L14.8699 5.07047C15.4799 5.32348 16.0449 5.65852 16.5609 6.05452L19.0489 5.05151C19.2749 4.96451 19.5369 5.05248 19.6609 5.26846L21.6609 8.73249C21.7859 8.94848 21.7309 9.2185 21.5429 9.37043L19.4309 11.0245L19.5009 12.0005L19.4309 12.9765L21.5429 14.6296C21.7309 14.7825 21.7859 15.0525 21.6609 15.2685L19.6609 18.7325C19.5369 18.9485 19.2749 19.0365 19.0489 18.9495L16.5599 17.9465C16.0439 18.3425 15.4789 18.6775 14.8699 18.9295L14.4949 21.5794C14.4569 21.8176 14.2509 22.0005 14.0009 22.0005L9.99967 21.9985ZM11.2503 4.0005L10.8843 6.61377C9.68292 6.86137 8.62463 7.50078 7.84895 8.39254L5.43814 7.35242L4.68814 8.65146L6.80101 10.2029C6.39926 11.3677 6.40005 12.6406 6.80337 13.8049L4.68493 15.3609L5.43493 16.6599L7.85559 15.6161C8.62862 16.5015 9.68077 17.137 10.8748 17.3853L11.2439 20.0174L12.7567 20.0194L13.1258 17.3872C14.3198 17.1389 15.372 16.5034 16.145 15.618L18.5657 16.6619L19.3157 15.3628L17.1972 13.8069C17.6005 12.6425 17.6013 11.3697 17.1996 10.2049L19.3124 8.65341L18.5624 7.35437L16.1516 8.39448C15.3759 7.50273 14.3177 6.86332 13.1163 6.61572L12.7503 4.00245L11.2503 4.0005Z"
+                                                fill="#2F1343" />
+                                    </g>
+                                </svg>
+
+                            </i>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            }
+
+
+        </div>
+
+    </nav>
+
+
+    <main class="main">
+        <header class="header animated fadeInDown fast">
+            <div class="left">
+                <a href="#" class="icon open-trigger">
+                    <i class="icon sm">
+                        <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.5 0H15.5V1.66667H0.5V0ZM0.5 4.16667H15.5V5.83333H0.5V4.16667ZM0.5 8.33333H15.5V10H0.5V8.33333Z"
+                                  fill="#101010" />
+                        </svg>
+                    </i>
+                </a>
+                <h2>Settings</h2>
+            </div>
+            <div class="right">
+                <div class="action dropdown">
+                    <a class="btn dropdown-toggle" id="profile-menu" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        @* The code below gets the image of the user below inform of passports including the Email*@
+                        @if (User.Claims.FirstOrDefault(p => p.Type == "passport") != null)
+                        {
+
+                            var passportstring = User.Claims.FirstOrDefault(p => p.Type == "passport").Value;
+
+                            <img src="@passportstring" height="30" />
+                            <input type="hidden" class="passporturl" value="@passportstring" />
+
+                        }
+                        else
+                        {
+                            <img src="~/assets/img/png/avatar2.png" height="30" />
+                        }
+
+                        <p>
+                            <strong>@User.Claims.FirstOrDefault(p => p.Type == "fullname").Value</strong>
+                            @if (User.Claims.FirstOrDefault(p => p.Type == "email") != null)
+                            {
+                                <span>@User.Claims.FirstOrDefault(p => p.Type == "email").Value</span>
+                            }
+
+                        </p>
+                        <i class="icon">
+                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.334 1.99992C10.334 1.07942 11.0801 0.333252 12.0007 0.333252C12.9212 0.333252 13.6673 1.07942 13.6673 1.99992C13.6673 2.92042 12.9212 3.66658 12.0007 3.66658C11.0801 3.66658 10.334 2.92042 10.334 1.99992ZM5.33398 1.99992C5.33398 1.07942 6.08015 0.333252 7.00065 0.333252C7.92115 0.333252 8.66732 1.07942 8.66732 1.99992C8.66732 2.92042 7.92115 3.66658 7.00065 3.66658C6.08015 3.66658 5.33398 2.92042 5.33398 1.99992ZM0.333984 1.99992C0.333984 1.07942 1.08018 0.333252 2.00065 0.333252C2.92113 0.333252 3.66732 1.07942 3.66732 1.99992C3.66732 2.92042 2.92113 3.66658 2.00065 3.66658C1.08018 3.66658 0.333984 2.92042 0.333984 1.99992Z"
+                                      fill="#101010" />
+                            </svg>
+                        </i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profile-menu">
+                        <a class="dropdown-item" href="./settings.html">
+                            <i class="icon">
+                                <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.083 8.12492L14.2497 8.95825L12.5413 7.24992L13.3747 6.41659C13.5529 6.24192 13.8381 6.24192 14.0163 6.41659L15.083 7.48325C15.2577 7.6615 15.2577 7.94667 15.083 8.12492ZM6.99967 12.7833L12.0497 7.73325L13.758 9.44159L8.71634 14.4999H6.99967V12.7833ZM6.99967 8.66658C3.31634 8.66658 0.333008 10.1583 0.333008 11.9999V13.6666H5.33301V12.0916L8.66634 8.75825C8.11367 8.68833 7.55667 8.65775 6.99967 8.66658ZM6.99967 0.333252C5.15872 0.333252 3.66634 1.82567 3.66634 3.66659C3.66634 5.5075 5.15872 6.99992 6.99967 6.99992C8.84059 6.99992 10.333 5.5075 10.333 3.66659C10.333 1.82567 8.84059 0.333252 6.99967 0.333252Z"
+                                          fill="#101010" />
+                                </svg>
+                            </i>
+                            <span>Edit Profile</span>
+                        </a>
+                        <a class="dropdown-item logout" asp-controller="Auth" asp-action="Logout">
+                            <i class="icon">
+                                <svg width="14" height="15" viewBox="0 0 14 15" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.7997 2.53332L9.59134 3.74166C11.033 4.61666 11.9997 6.19166 11.9997 7.99999C11.9997 10.7583 9.75801 13 6.99967 13C4.24134 13 1.99967 10.7583 1.99967 7.99999C1.99967 6.19166 2.96634 4.61666 4.39967 3.73333L3.19967 2.53332C1.46634 3.73333 0.333008 5.73333 0.333008 7.99999C0.333008 11.6833 3.31634 14.6667 6.99967 14.6667C10.683 14.6667 13.6663 11.6833 13.6663 7.99999C13.6663 5.73333 12.533 3.73333 10.7997 2.53332ZM7.83301 0.5H6.16634V8.83333H7.83301"
+                                          fill="#FF7070" />
+                                </svg>
+                            </i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <section class="content settings">
+            <div class="contianer">
+                <div class="card animated fadeInUp fast delay-1">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-4">
+                            <div class="category-cats">
+                                <div class="category-nav-wrap">
+                                    <div class="category-nav">
+                                        <label>Profile</label>
+                                        <a class="item active" asp-action="Index" asp-controller="Settings">
+                                            <strong>Update Profile</strong>
+                                            <p class="ellipsis">Change bio, name and other KYC info</p>
+                                        </a>
+                                        <a class="item" asp-action="Password" asp-controller="Settings">
+                                            <strong>Change Password</strong>
+                                            <p class="ellipsis">Update security by changing your password.</p>
+                                        </a>
+                                        @*<a class="item" asp-action="AuthPin" asp-controller="Settings">
+                                                <strong>Auth/USSD PIN</strong>
+                                                <p class="ellipsis">4 digit PIN for transaction below 20k</p>
+                                            </a>
+                                            <a class="item" asp-action="TransactionPin" asp-controller="Settings">
+                                                <strong>Transaction PIN</strong>
+                                                <p class="ellipsis">4 digit PIN for transaction above 20k</p>
+                                            </a>*@
+                                        @*<a class="item no-outline" asp-action="TransactionPinn" asp-controller="Settings">
+                                                <strong>Transaction PIN</strong>
+                                                <p class="ellipsis">4 digit PIN for transaction above 20k</p>
+                                            </a>*@
+
+                                        <label>Others</label>
+                                        @*<a class="item" asp-action="Notification" asp-controller="Settings">
+                                                <strong>Notifcation & Alerts</strong>
+                                                <p class="ellipsis">Configure how u want to recieve notifications</p>
+                                            </a>*@
+                                        <a class="item no-outline" asp-action="Support" asp-controller="Settings">
+                                            <strong>Support</strong>
+                                            <p class="ellipsis">Our contact informations and support channels</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-8">
+                            <div class="setting-content">
+                                <!-- Profile -->
+                                <div class="setting-sect" id="setting-profile">
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" id="basic-tab" data-toggle="tab" href="#basic-ct"
+                                               role="tab" aria-selected="true">
+                                                <i class="icon auto">
+                                                    <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M5.5 0.5C6.88069 0.5 8 1.61929 8 3C8 4.38069 6.88069 5.5 5.5 5.5C4.11929 5.5 3 4.38069 3 3C3 1.61929 4.11929 0.5 5.5 0.5ZM5.5 6.75C8.26144 6.75 10.5 7.86931 10.5 9.25V10.5H0.5V9.25C0.5 7.86931 2.73857 6.75 5.5 6.75Z"
+                                                              fill="#101010" />
+                                                    </svg>
+                                                </i>
+                                                <span>Basic</span>
+                                            </a>
+                                        </li>
+                                        @*<li class="nav-item">
+                                                <a class="nav-link" id="kyc-tab" data-toggle="tab" href="#kyc-ct" role="tab"
+                                                   aria-selected="false">
+                                                    <i class="icon auto">
+                                                        <svg width="13" height="15" viewBox="0 0 13 15" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M6.5 0.625L0.875 3.125V6.875C0.875 10.3437 3.275 13.5875 6.5 14.375C9.725 13.5875 12.125 10.3437 12.125 6.875V3.125L6.5 0.625ZM6.5 3.125C7.53556 3.125 8.375 3.96444 8.375 5C8.375 6.03556 7.53556 6.875 6.5 6.875C5.46444 6.875 4.625 6.03556 4.625 5C4.625 3.96444 5.46444 3.125 6.5 3.125ZM9.70625 10.625C8.94825 11.7835 7.81694 12.6479 6.5 13.075C5.18308 12.6479 4.05176 11.7835 3.29375 10.625C3.08128 10.3251 2.89914 10.0047 2.75 9.66875C2.75 8.6375 4.44375 7.79375 6.5 7.79375C8.55625 7.79375 10.25 8.61875 10.25 9.66875C10.1009 10.0047 9.91875 10.3251 9.70625 10.625Z"
+                                                                  fill="#101010" />
+                                                        </svg>
+                                                    </i>
+                                                    <span>KYC</span>
+                                                </a>
+                                            </li>*@
+                                        <li class="nav-item">
+                                            <a class="nav-link" id="nextkin-tab" data-toggle="tab" href="#nextkin-ct"
+                                               role="tab" aria-selected="false">
+                                                <i class="icon auto">
+                                                    <svg width="15" height="9" viewBox="0 0 15 9" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M10 5.12404C9.81876 5.12404 9.61438 5.13529 9.39688 5.15779C10.1213 5.68092 10.625 6.38467 10.625 7.31154V8.87404H14.375V7.31154C14.375 5.85404 11.4581 5.12404 10 5.12404ZM5 5.12404C3.54124 5.12404 0.625 5.85404 0.625 7.31154V8.87404H9.37501V7.31154C9.37501 5.85404 6.45813 5.12404 5 5.12404ZM5 3.87404C6.03563 3.87404 6.86876 3.03402 6.86876 1.99902C6.86876 0.964023 6.03563 0.124023 5 0.124023C3.96437 0.124023 3.125 0.964023 3.125 1.99902C3.125 3.03402 3.96437 3.87404 5 3.87404ZM10 3.87404C11.0356 3.87404 11.8688 3.03402 11.8688 1.99902C11.8688 0.964023 11.0356 0.124023 10 0.124023C8.96438 0.124023 8.12501 0.964023 8.12501 1.99902C8.12501 3.03402 8.96438 3.87404 10 3.87404Z"
+                                                              fill="#101010" />
+                                                    </svg>
+                                                </i>
+                                                <span>Next of KIN</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane fade show active" id="basic-ct" role="tabpanel"
+                                             aria-labelledby="basic-tab">
+                                            <form class="pt-4" asp-action="Index" enctype="multipart/form-data" asp-controller="Settings" method="post">
+                                                <div class="avater">
+                                                    @*@{ var passportstring = User.Claims.FirstOrDefault(p => p.Type == "passport").Value;
+                                                            var passport = passportstring.Substring(71);
+                                                        }*@
+                                                    <input type="file" name="PictureFile" hidden />
+                                                    <div class="image" id="pp"
+                                                         style="background-image: url('~/docs/img/png/avatar.png');">
+                                                        <i class="icon auto">
+                                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M9.71667 5.51667L10.4833 6.28333L2.93333 13.8333H2.16667V13.0667L9.71667 5.51667ZM12.7167 0.5C12.5083 0.5 12.2917 0.583333 12.1333 0.741667L10.6083 2.26667L13.7333 5.39167L15.2583 3.86667C15.5833 3.54167 15.5833 3.01667 15.2583 2.69167L13.3083 0.741667C13.1417 0.575 12.9333 0.5 12.7167 0.5ZM9.71667 3.15833L0.5 12.375V15.5H3.625L12.8417 6.28333L9.71667 3.15833Z"
+                                                                      fill="white" />
+                                                            </svg>
+                                                        </i>
+                                                    </div>
+                                                    <div>
+                                                        <p>Profile Picture</p>
+                                                        <a class="btn btn-link text-yellow">Click pencil icon to upload/change it</a>
+                                                    </div>
+                                                </div>
+                                                <div asp-validation-summary="All" class="text-danger"></div>
+                                                <h6 class="text-danger">@ViewData["UpdateState"]</h6>
+                                                <h6 class="text-success">@ViewData["UpdateStatus"]</h6>
+
+                                                <div class="row">
+
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <div class="input">
+                                                            <input name="FirstName" placeholder="First Name" />
+                                                            <label>First Name</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <div class="input">
+                                                            <input name="LastName" placeholder="Last Name" />
+                                                            <label>Last Name</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="input">
+                                                    <input name="Phone" placeholder="Phone Number" disabled />
+                                                    <label>Phone Number</label>
+                                                    <span>Not editable</span>
+                                                </div>
+                                                @*<div class="input">
+                                                    <input name="Email" placeholder="Email Address" />
+                                                    <label>Email Address</label>
+                                                    <span>To help us improve our services to you</span>
+                                                </div>*@
+                                                <div class="text-divider">
+                                                    <span>OTHERS</span>
+                                                </div>
+                                                <div class="input with-icon">
+                                                    <select name="Gender">
+                                                        <option disabled selected>Gender</option>
+                                                        <option>Male</option>
+                                                        <option>Female</option>
+                                                    </select>
+                                                    <label>Gender</label>
+                                                    <i class="icon sm">
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.3">
+                                                                <path d="M6.17833 7.15332L10 10.975L13.8217 7.15332L15 8.33165L10 13.3317L5 8.33165L6.17833 7.15332Z"
+                                                                      fill="#101010" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                </div>
+                                                <div class="input with-icon">
+                                                    <input name="DOB" class="date" placeholder="Date of Birth" />
+                                                    <label>Date of Birth</label>
+                                                    <i class="icon sm">
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.3">
+                                                                <path d="M5.83333 10.0001H7.5V11.6667H5.83333V10.0001ZM17.5 5.00007V16.6667C17.5 17.5834 16.75 18.3334 15.8333 18.3334H4.16667C3.24167 18.3334 2.5 17.5834 2.5 16.6667L2.50833 5.00007C2.50833 4.08341 3.24167 3.33341 4.16667 3.33341H5V1.66675H6.66667V3.33341H13.3333V1.66675H15V3.33341H15.8333C16.75 3.33341 17.5 4.08341 17.5 5.00007ZM4.16667 6.66674H15.8333V5.00007H4.16667V6.66674ZM15.8333 16.6667V8.33341H4.16667V16.6667H15.8333ZM12.5 11.6667V10.0001H14.1667V11.6667H12.5ZM9.16667 11.6667V10.0001H10.8333V11.6667H9.16667ZM5.83333 13.3334H7.5V15.0001H5.83333V13.3334ZM12.5 15.0001V13.3334H14.1667V15.0001H12.5ZM9.16667 15.0001V13.3334H10.8333V15.0001H9.16667Z"
+                                                                      fill="#101010" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                </div>
+                                                <div class="input">
+                                                    <input name="MothersMedianName" placeholder="Mother’s Maiden Name" />
+                                                    <label>Mother’s Maiden Name</label>
+                                                </div>
+
+                                                <button type="submit" class="btn btn-primary mb-5">Update</button>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade" id="kyc-ct" role="tabpanel"
+                                             aria-labelledby="kyc-tab">
+                                            <form class="pt-5" asp-action="KYC" asp-controller="Settings" method="post">
+                                                <div class="input">
+                                                    <input name="BVN" placeholder="Bank Verification Number" disabled />
+                                                    <label>Bank Verification Number</label>
+                                                    <span>Not editable</span>
+                                                </div>
+                                                <hr />
+                                                <div class="docs">
+                                                    <div class="item profile-pic">
+                                                        <p>
+                                                            <strong>Passport Photo</strong>
+                                                            <span class="desp">
+                                                                A Portriat Photo of your face on a plain
+                                                                background
+                                                            </span>
+                                                            <input type="file" hidden />
+                                                        </p>
+                                                        <div class="image"
+                                                             style="background-image: url('./assets/img/png/avatar2.png');">
+                                                            <i class="icon auto">
+                                                                <svg width="16" height="16" viewBox="0 0 16 16"
+                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M9.71667 5.51667L10.4833 6.28333L2.93333 13.8333H2.16667V13.0667L9.71667 5.51667ZM12.7167 0.5C12.5083 0.5 12.2917 0.583333 12.1333 0.741667L10.6083 2.26667L13.7333 5.39167L15.2583 3.86667C15.5833 3.54167 15.5833 3.01667 15.2583 2.69167L13.3083 0.741667C13.1417 0.575 12.9333 0.5 12.7167 0.5ZM9.71667 3.15833L0.5 12.375V15.5H3.625L12.8417 6.28333L9.71667 3.15833Z"
+                                                                          fill="white" />
+                                                                </svg>
+                                                            </i>
+                                                        </div>
+                                                    </div>
+                                                    <div class="item attached">
+                                                        <p>
+                                                            <strong>Valid ID Card</strong>
+                                                            <span class="desp">
+                                                                Your Driver License, National ID Card,
+                                                                Permanent Voter’s Card etc
+                                                            </span>
+                                                            <span class="file">my ID-Card.pdf | <em>100kb</em></span>
+                                                            <input type="file" hidden />
+                                                        </p>
+                                                        <a class="btn btn-link text-yellow upload-btn">
+                                                            <i class="icon auto">
+                                                                <svg width="11" height="13" viewBox="0 0 11 13"
+                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M6.75 0.25H1.75C1.05964 0.25 0.5 0.809625 0.5 1.5V11.5C0.5 12.1904 1.05964 12.75 1.75 12.75H9.25C9.94037 12.75 10.5 12.1904 10.5 11.5V4L6.75 0.25ZM6.4375 9V10.875H4.5625V9H3L5.5 6.5L8 9H6.4375ZM6.125 4.625V1.1875L9.5625 4.625H6.125Z"
+                                                                          fill="#FBB700" />
+                                                                </svg>
+                                                            </i>
+                                                            <span>Upload</span>
+                                                        </a>
+                                                        <a class="btn btn-link text-red remove-btn">
+                                                            <i class="icon auto">
+                                                                <svg width="11" height="15" viewBox="0 0 11 15"
+                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M0.777778 12.9444C0.777778 13.8 1.47778 14.5 2.33333 14.5H8.55556C9.41111 14.5 10.1111 13.8 10.1111 12.9444V3.61111H0.777778V12.9444ZM2.69111 7.40667L3.78778 6.31L5.44444 7.95889L7.09333 6.31L8.19 7.40667L6.54111 9.05556L8.19 10.7044L7.09333 11.8011L5.44444 10.1522L3.79556 11.8011L2.69889 10.7044L4.34778 9.05556L2.69111 7.40667ZM8.16667 1.27778L7.38889 0.5H3.5L2.72222 1.27778H0V2.83333H10.8889V1.27778H8.16667Z"
+                                                                          fill="#FF7070" />
+                                                                </svg>
+                                                            </i>
+                                                            <span>Remove</span>
+                                                        </a>
+                                                    </div>
+                                                    <div class="item">
+                                                        <p>
+                                                            <strong>Utility BIll</strong>
+                                                            <span class="desp">
+                                                                Your Electricity bill, Water bill, House
+                                                                Insurance
+                                                                Receipt etc
+                                                            </span>
+                                                            <span class="file">my ID-Card.pdf | <em>100kb</em></span>
+                                                            <input type="file" hidden />
+                                                        </p>
+                                                        <a class="btn btn-link text-yellow upload-btn">
+                                                            <i class="icon auto">
+                                                                <svg width="11" height="13" viewBox="0 0 11 13"
+                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M6.75 0.25H1.75C1.05964 0.25 0.5 0.809625 0.5 1.5V11.5C0.5 12.1904 1.05964 12.75 1.75 12.75H9.25C9.94037 12.75 10.5 12.1904 10.5 11.5V4L6.75 0.25ZM6.4375 9V10.875H4.5625V9H3L5.5 6.5L8 9H6.4375ZM6.125 4.625V1.1875L9.5625 4.625H6.125Z"
+                                                                          fill="#FBB700" />
+                                                                </svg>
+                                                            </i>
+                                                            <span>Upload</span>
+                                                        </a>
+                                                        <a class="btn btn-link text-red remove-btn">
+                                                            <i class="icon auto">
+                                                                <svg width="11" height="15" viewBox="0 0 11 15"
+                                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M0.777778 12.9444C0.777778 13.8 1.47778 14.5 2.33333 14.5H8.55556C9.41111 14.5 10.1111 13.8 10.1111 12.9444V3.61111H0.777778V12.9444ZM2.69111 7.40667L3.78778 6.31L5.44444 7.95889L7.09333 6.31L8.19 7.40667L6.54111 9.05556L8.19 10.7044L7.09333 11.8011L5.44444 10.1522L3.79556 11.8011L2.69889 10.7044L4.34778 9.05556L2.69111 7.40667ZM8.16667 1.27778L7.38889 0.5H3.5L2.72222 1.27778H0V2.83333H10.8889V1.27778H8.16667Z"
+                                                                          fill="#FF7070" />
+                                                                </svg>
+                                                            </i>
+                                                            <span>Remove</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                                <button type="submit" class="btn btn-primary">Update</button>
+                                            </form>
+                                        </div>
+                                        <div class="tab-pane fade" id="nextkin-ct" role="tabpanel"
+                                             aria-labelledby="nextkin-tab">
+                                            <form class="pt-5" asp-action="NextOfKin" asp-controller="Settings" method="post">
+                                                <div asp-validation-summary="All" class="text-danger"></div>
+                                                <h6 class="text-danger">@ViewData["UpdateState"]</h6>
+                                                <h6 class="text-success">@ViewData["UpdateStatus"]</h6>
+                                                <div class="row">
+
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <div class="input">
+                                                            <input name="NextofKinFirstname" placeholder="First Name" />
+                                                            <label>First Name</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <div class="input">
+                                                            <input name="NextofKinLastName" placeholder="Last Name" />
+                                                            <label>Last Name</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="input">
+                                                    <input name="NextofKinPhone" placeholder="Phone Number" />
+                                                    <label>Phone Number</label>
+                                                </div>
+                                                <div class="input">
+                                                    <input name="NextofKinEmail" placeholder="Email Address" />
+                                                    <label>Email Address</label>
+                                                    <span>To help us improve our services to you</span>
+                                                </div>
+                                                <div class="input">
+                                                    <textarea name="NextofKinAddress" placeholder="Address"></textarea>
+                                                    <label>Address</label>
+                                                </div>
+
+                                                <button type="submit" class="btn btn-primary mb-5">Update</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Loading -->
+                            <div class="loading">
+                                <div class="la-ball-pulse">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        @*<section class="content settings">
+                <div class="contianer">
+                    <div class="card animated fadeInUp fast delay-1">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4">
+                                <div class="category-cats">
+                                    <div class="category-nav-wrap">
+                                        <div class="category-nav">
+                                            <label>Profile</label>
+                                            <a class="item active" asp-controller="Admin" asp-action="Settings">
+                                                <strong>Update Profile</strong>
+                                                <p class="ellipsis">Change bio, name and other KYC info</p>
+                                            </a>
+                                            <a class="item" asp-action="Password" asp-controller="Settings">
+                                                <strong>Change Password</strong>
+                                                <p class="ellipsis">Update security by changing your password.</p>
+                                            </a>
+                                            <label>Others</label>
+                                            <a class="item no-outline" asp-action="Support" asp-controller="Settings">
+                                                <strong>Support</strong>
+                                                <p class="ellipsis">Our contact informations and support channels</p>
+                                            </a>
+                                            <a class="item" asp-action="Notification" asp-controller="Settings">
+                <strong class="text-red">Delete my Account</strong>
+                <p class="ellipsis">Configure how u want to recieve notifications</p>
+            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-8">
+                                <div class="setting-content mt-3">
+                                     Profile
+                                    <div class="setting-sect" id="setting-profile">
+                                        <ul class="nav nav-tabs" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="basic-tab" data-toggle="tab" href="#basic-ct"
+                                                   role="tab" aria-selected="true">
+                                                    <i class="icon auto">
+                                                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M5.5 0.5C6.88069 0.5 8 1.61929 8 3C8 4.38069 6.88069 5.5 5.5 5.5C4.11929 5.5 3 4.38069 3 3C3 1.61929 4.11929 0.5 5.5 0.5ZM5.5 6.75C8.26144 6.75 10.5 7.86931 10.5 9.25V10.5H0.5V9.25C0.5 7.86931 2.73857 6.75 5.5 6.75Z"
+                                                                  fill="#101010" />
+                                                        </svg>
+                                                    </i>
+                                                    <span>Basic</span>
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="kyc-tab" data-toggle="tab" href="#kyc-ct" role="tab"
+                                                   aria-selected="false">
+                                                    <i class="icon auto">
+                                                        <svg width="13" height="15" viewBox="0 0 13 15" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M6.5 0.625L0.875 3.125V6.875C0.875 10.3437 3.275 13.5875 6.5 14.375C9.725 13.5875 12.125 10.3437 12.125 6.875V3.125L6.5 0.625ZM6.5 3.125C7.53556 3.125 8.375 3.96444 8.375 5C8.375 6.03556 7.53556 6.875 6.5 6.875C5.46444 6.875 4.625 6.03556 4.625 5C4.625 3.96444 5.46444 3.125 6.5 3.125ZM9.70625 10.625C8.94825 11.7835 7.81694 12.6479 6.5 13.075C5.18308 12.6479 4.05176 11.7835 3.29375 10.625C3.08128 10.3251 2.89914 10.0047 2.75 9.66875C2.75 8.6375 4.44375 7.79375 6.5 7.79375C8.55625 7.79375 10.25 8.61875 10.25 9.66875C10.1009 10.0047 9.91875 10.3251 9.70625 10.625Z"
+                                                                  fill="#101010" />
+                                                        </svg>
+                                                    </i>
+                                                    <span>Guildian Details</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                        <div class="tab-content">
+                                            <div class="tab-pane fade show active" id="basic-ct" role="tabpanel"
+                                                 aria-labelledby="basic-tab">
+                                                <form class="pt-4">
+                                                    <div class="avater">
+                                                        <input type="file" hidden />
+                                                        <div class="image"
+                                                             style="background-image: url('~/assets/img/png/raph.png');">
+                                                            <i class="icon auto">
+                                                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"
+                                                                     xmlns="http://www.w3.org/2000/svg">
+                                                                    <path d="M9.71667 5.51667L10.4833 6.28333L2.93333 13.8333H2.16667V13.0667L9.71667 5.51667ZM12.7167 0.5C12.5083 0.5 12.2917 0.583333 12.1333 0.741667L10.6083 2.26667L13.7333 5.39167L15.2583 3.86667C15.5833 3.54167 15.5833 3.01667 15.2583 2.69167L13.3083 0.741667C13.1417 0.575 12.9333 0.5 12.7167 0.5ZM9.71667 3.15833L0.5 12.375V15.5H3.625L12.8417 6.28333L9.71667 3.15833Z"
+                                                                          fill="white" />
+                                                                </svg>
+                                                            </i>
+                                                        </div>
+                                                        <div>
+                                                            <p>Profile Picture</p>
+                                                            <a class="btn btn-link text-yellow">Click image icon to change it</a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <div class="input">
+                                                                <input type="text" placeholder="First Name" />
+                                                                <label>First Name</label>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12 col-md-6">
+                                                            <div class="input">
+                                                                <input type="text" placeholder="Last Name" />
+                                                                <label>Last Name</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="input">
+                                                        <input class="tel" type="text" placeholder="Phone Number"
+                                                               value="08125368990" disabled />
+                                                        <label>Phone Number</label>
+                                                        <span>Not editable</span>
+                                                    </div>
+                                                    <div class="input">
+                                                        <input type="email" placeholder="Email Address" />
+                                                        <label>Email Address</label>
+                                                        <span>To help us improve our services to you</span>
+                                                    </div>
+                                                    <div class="text-divider">
+                                                        <span>OTHERS</span>
+                                                    </div>
+                                                    <div class="input with-icon">
+                                                        <select>
+                                                            <option disabled selected>Gender</option>
+                                                            <option>Male</option>
+                                                            <option>Female</option>
+                                                        </select>
+                                                        <label>Gender</label>
+                                                        <i class="icon sm">
+                                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <g opacity="0.3">
+                                                                    <path d="M6.17833 7.15332L10 10.975L13.8217 7.15332L15 8.33165L10 13.3317L5 8.33165L6.17833 7.15332Z"
+                                                                          fill="#101010" />
+                                                                </g>
+                                                            </svg>
+                                                        </i>
+                                                    </div>
+                                                    <div class="input with-icon">
+                                                        <input class="date" type="text" placeholder="Date of Birth" />
+                                                        <label>Date of Birth</label>
+                                                        <i class="icon sm">
+                                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                                 xmlns="http://www.w3.org/2000/svg">
+                                                                <g opacity="0.3">
+                                                                    <path d="M5.83333 10.0001H7.5V11.6667H5.83333V10.0001ZM17.5 5.00007V16.6667C17.5 17.5834 16.75 18.3334 15.8333 18.3334H4.16667C3.24167 18.3334 2.5 17.5834 2.5 16.6667L2.50833 5.00007C2.50833 4.08341 3.24167 3.33341 4.16667 3.33341H5V1.66675H6.66667V3.33341H13.3333V1.66675H15V3.33341H15.8333C16.75 3.33341 17.5 4.08341 17.5 5.00007ZM4.16667 6.66674H15.8333V5.00007H4.16667V6.66674ZM15.8333 16.6667V8.33341H4.16667V16.6667H15.8333ZM12.5 11.6667V10.0001H14.1667V11.6667H12.5ZM9.16667 11.6667V10.0001H10.8333V11.6667H9.16667ZM5.83333 13.3334H7.5V15.0001H5.83333V13.3334ZM12.5 15.0001V13.3334H14.1667V15.0001H12.5ZM9.16667 15.0001V13.3334H10.8333V15.0001H9.16667Z"
+                                                                          fill="#101010" />
+                                                                </g>
+                                                            </svg>
+                                                        </i>
+                                                    </div>
+                                                    <div class="input">
+                                                        <input type="text" placeholder="Contact Address" />
+                                                        <label>Contact Address</label>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary mb-5">Update</button>
+                                                </form>
+                                            </div>
+
+                                            <div class="tab-pane fade" id="kyc-ct" role="tabpanel"
+                                                 aria-labelledby="kyc-tab">
+                                                <form class="pt-5">
+                                                    <div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-6">
+                                                                <div class="input">
+                                                                    <input type="text" placeholder="First Name" />
+                                                                    <label>First Name</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12 col-md-6">
+                                                                <div class="input">
+                                                                    <input type="text" placeholder="Last Name" />
+                                                                    <label>Last Name</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-12 col-md-6">
+                                                                <div class="input">
+                                                                    <input type="email" placeholder="Email" />
+                                                                    <label>Email</label>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-12 col-md-6">
+                                                                <div class="input">
+                                                                    <input class="tel" type="text" placeholder="Phone Number" id="cleave-tel-0">
+                                                                    <label>Phone Number</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Update</button>
+                                                    <div class="item attached">
+                                                        <hr />
+                                                        <div class="docs">
+                                                            <div class="item">
+                                                                <p>
+                                                                    <strong>Ogunkunle Rahmon</strong>
+                                                                    <span class="desp">Raymondklein49@gmail.com</span>
+                                                                    <span class="text-red">08105283692</span>
+                                                                </p>
+                                                                <a class="btn btn-link text-yellow upload-btn">
+                                                                    <i class="icon auto">
+                                                                        <svg width="11" height="13" viewBox="0 0 11 13"
+                                                                             fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                            <path d="M6.75 0.25H1.75C1.05964 0.25 0.5 0.809625 0.5 1.5V11.5C0.5 12.1904 1.05964 12.75 1.75 12.75H9.25C9.94037 12.75 10.5 12.1904 10.5 11.5V4L6.75 0.25ZM6.4375 9V10.875H4.5625V9H3L5.5 6.5L8 9H6.4375ZM6.125 4.625V1.1875L9.5625 4.625H6.125Z"
+                                                                                  fill="#FBB700" />
+                                                                        </svg>
+                                                                    </i>
+                                                                    <span>Remove</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="nextkin-ct" role="tabpanel"
+                                             aria-labelledby="nextkin-tab">
+                                            <form class="pt-5">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <div class="input">
+                                                            <input type="text" placeholder="First Name" />
+                                                            <label>First Name</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 col-md-6">
+                                                        <div class="input">
+                                                            <input type="text" placeholder="Last Name" />
+                                                            <label>Last Name</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="input">
+                                                    <input class="tel" type="text" placeholder="Phone Number" />
+                                                    <label>Phone Number</label>
+                                                </div>
+                                                <div class="input">
+                                                    <input type="email" placeholder="Email Address" />
+                                                    <label>Email Address</label>
+                                                    <span>To help us improve our services to you</span>
+                                                </div>
+                                                <div class="input">
+                                                    <textarea placeholder="Address"></textarea>
+                                                    <label>Address</label>
+                                                </div>
+
+                                                <button type="submit" class="btn btn-primary mb-5">Update</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                 Password
+                                <div class="setting-sect" id="setting-password">
+                                    <div class="head">
+                                        <h4>Change Password</h4>
+                                        <p>
+                                            Change your Password by entering your current Password and then your new
+                                            Password
+                                        </p>
+                                    </div>
+
+                                    <form>
+                                        <div class="input with-icon">
+                                            <input type="password" placeholder="Current Password" />
+                                            <label>Current Password</label>
+                                            <a class="toggle active">
+                                                <i class="icon sm hide">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.39639 5.6343L9.36389 7.60175C9.36577 7.56682 9.37452 7.53425 9.37452 7.49863C9.37452 6.46307 8.53514 5.62365 7.49952 5.62365C7.46389 5.62365 7.43139 5.63239 7.39639 5.6343ZM4.70513 6.12552L5.67201 7.09175C5.64263 7.22307 5.62451 7.35863 5.62451 7.49863C5.62451 8.53425 6.46389 9.37363 7.49952 9.37363C7.64014 9.37363 7.77577 9.35557 7.90639 9.32675L8.87327 10.2931C8.45702 10.4981 7.99452 10.6236 7.49952 10.6236C5.77389 10.6236 4.37451 9.22494 4.37451 7.49863C4.37451 7.00363 4.50013 6.54176 4.70513 6.12552ZM1.24951 2.66929L2.67388 4.09427L2.95827 4.37866C1.92702 5.18615 1.11264 6.25988 0.624512 7.49863C1.70451 10.2418 4.37326 12.1861 7.49952 12.1861C8.46827 12.1861 9.39264 11.9987 10.2395 11.6599L10.5045 11.9243L12.3289 13.7493L13.1245 12.9537L2.04514 1.87427L1.24951 2.66929ZM7.49952 4.37365C9.22514 4.37365 10.6245 5.77304 10.6245 7.49863C10.6245 7.90238 10.542 8.28557 10.4026 8.63988L12.2289 10.4661C13.1714 9.67801 13.917 8.66113 14.3745 7.49863C13.2945 4.75554 10.6264 2.81115 7.49952 2.81115C6.62452 2.81115 5.78763 2.96802 5.00951 3.24741L6.35827 4.59617C6.71264 4.45678 7.09577 4.37365 7.49952 4.37365Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                                <i class="icon sm show">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.49999 5.62378C6.46437 5.62378 5.625 6.46314 5.625 7.49876C5.625 8.53439 6.46437 9.37376 7.49999 9.37376C8.53562 9.37376 9.37499 8.53439 9.37499 7.49876C9.37499 6.46314 8.53562 5.62378 7.49999 5.62378ZM7.49999 10.6238C5.77437 10.6238 4.375 9.22439 4.375 7.49876C4.375 5.77316 5.77437 4.37378 7.49999 4.37378C9.22562 4.37378 10.625 5.77316 10.625 7.49876C10.625 9.22439 9.22562 10.6238 7.49999 10.6238ZM7.49999 2.81128C4.37375 2.81128 1.705 4.75567 0.625 7.49876C1.705 10.2419 4.37375 12.1863 7.49999 12.1863C10.6269 12.1863 13.295 10.2419 14.375 7.49876C13.295 4.75567 10.6269 2.81128 7.49999 2.81128Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                        <hr />
+                                        <div class="input with-icon password-check">
+                                            <input type="password" placeholder="New Password" />
+                                            <label>New Password</label>
+                                            <a class="toggle active">
+                                                <i class="icon sm hide">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.39639 5.6343L9.36389 7.60175C9.36577 7.56682 9.37452 7.53425 9.37452 7.49863C9.37452 6.46307 8.53514 5.62365 7.49952 5.62365C7.46389 5.62365 7.43139 5.63239 7.39639 5.6343ZM4.70513 6.12552L5.67201 7.09175C5.64263 7.22307 5.62451 7.35863 5.62451 7.49863C5.62451 8.53425 6.46389 9.37363 7.49952 9.37363C7.64014 9.37363 7.77577 9.35557 7.90639 9.32675L8.87327 10.2931C8.45702 10.4981 7.99452 10.6236 7.49952 10.6236C5.77389 10.6236 4.37451 9.22494 4.37451 7.49863C4.37451 7.00363 4.50013 6.54176 4.70513 6.12552ZM1.24951 2.66929L2.67388 4.09427L2.95827 4.37866C1.92702 5.18615 1.11264 6.25988 0.624512 7.49863C1.70451 10.2418 4.37326 12.1861 7.49952 12.1861C8.46827 12.1861 9.39264 11.9987 10.2395 11.6599L10.5045 11.9243L12.3289 13.7493L13.1245 12.9537L2.04514 1.87427L1.24951 2.66929ZM7.49952 4.37365C9.22514 4.37365 10.6245 5.77304 10.6245 7.49863C10.6245 7.90238 10.542 8.28557 10.4026 8.63988L12.2289 10.4661C13.1714 9.67801 13.917 8.66113 14.3745 7.49863C13.2945 4.75554 10.6264 2.81115 7.49952 2.81115C6.62452 2.81115 5.78763 2.96802 5.00951 3.24741L6.35827 4.59617C6.71264 4.45678 7.09577 4.37365 7.49952 4.37365Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                                <i class="icon sm show">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.49999 5.62378C6.46437 5.62378 5.625 6.46314 5.625 7.49876C5.625 8.53439 6.46437 9.37376 7.49999 9.37376C8.53562 9.37376 9.37499 8.53439 9.37499 7.49876C9.37499 6.46314 8.53562 5.62378 7.49999 5.62378ZM7.49999 10.6238C5.77437 10.6238 4.375 9.22439 4.375 7.49876C4.375 5.77316 5.77437 4.37378 7.49999 4.37378C9.22562 4.37378 10.625 5.77316 10.625 7.49876C10.625 9.22439 9.22562 10.6238 7.49999 10.6238ZM7.49999 2.81128C4.37375 2.81128 1.705 4.75567 0.625 7.49876C1.705 10.2419 4.37375 12.1863 7.49999 12.1863C10.6269 12.1863 13.295 10.2419 14.375 7.49876C13.295 4.75567 10.6269 2.81128 7.49999 2.81128Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                            </a>
+
+                                            <div class="checker">
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>Minimum of 8 Characters</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>Must contain an Alphabet</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>At least one Number</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>
+                                                        At least one Special Character (#*&)
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="input with-icon password-check">
+                                            <input type="password" placeholder="Confirm New Password" />
+                                            <label>Confirm New Password</label>
+                                            <a class="toggle active">
+                                                <i class="icon sm hide">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.39639 5.6343L9.36389 7.60175C9.36577 7.56682 9.37452 7.53425 9.37452 7.49863C9.37452 6.46307 8.53514 5.62365 7.49952 5.62365C7.46389 5.62365 7.43139 5.63239 7.39639 5.6343ZM4.70513 6.12552L5.67201 7.09175C5.64263 7.22307 5.62451 7.35863 5.62451 7.49863C5.62451 8.53425 6.46389 9.37363 7.49952 9.37363C7.64014 9.37363 7.77577 9.35557 7.90639 9.32675L8.87327 10.2931C8.45702 10.4981 7.99452 10.6236 7.49952 10.6236C5.77389 10.6236 4.37451 9.22494 4.37451 7.49863C4.37451 7.00363 4.50013 6.54176 4.70513 6.12552ZM1.24951 2.66929L2.67388 4.09427L2.95827 4.37866C1.92702 5.18615 1.11264 6.25988 0.624512 7.49863C1.70451 10.2418 4.37326 12.1861 7.49952 12.1861C8.46827 12.1861 9.39264 11.9987 10.2395 11.6599L10.5045 11.9243L12.3289 13.7493L13.1245 12.9537L2.04514 1.87427L1.24951 2.66929ZM7.49952 4.37365C9.22514 4.37365 10.6245 5.77304 10.6245 7.49863C10.6245 7.90238 10.542 8.28557 10.4026 8.63988L12.2289 10.4661C13.1714 9.67801 13.917 8.66113 14.3745 7.49863C13.2945 4.75554 10.6264 2.81115 7.49952 2.81115C6.62452 2.81115 5.78763 2.96802 5.00951 3.24741L6.35827 4.59617C6.71264 4.45678 7.09577 4.37365 7.49952 4.37365Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                                <i class="icon sm show">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.49999 5.62378C6.46437 5.62378 5.625 6.46314 5.625 7.49876C5.625 8.53439 6.46437 9.37376 7.49999 9.37376C8.53562 9.37376 9.37499 8.53439 9.37499 7.49876C9.37499 6.46314 8.53562 5.62378 7.49999 5.62378ZM7.49999 10.6238C5.77437 10.6238 4.375 9.22439 4.375 7.49876C4.375 5.77316 5.77437 4.37378 7.49999 4.37378C9.22562 4.37378 10.625 5.77316 10.625 7.49876C10.625 9.22439 9.22562 10.6238 7.49999 10.6238ZM7.49999 2.81128C4.37375 2.81128 1.705 4.75567 0.625 7.49876C1.705 10.2419 4.37375 12.1863 7.49999 12.1863C10.6269 12.1863 13.295 10.2419 14.375 7.49876C13.295 4.75567 10.6269 2.81128 7.49999 2.81128Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                            </a>
+
+                                            <div class="checker">
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>Minimum of 8 Characters</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>Must contain an Alphabet</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>At least one Number</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>At least one Special Character (#&*)</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </form>
+                                </div>
+                                 Auth / USSD PIN
+                                <div class="setting-sect" id="setting-auth-pin">
+                                    <div class="head">
+                                        <h4>Auth / USSD PIN</h4>
+                                        <p>
+                                            This allows you to send funds <strong>below ₦20,000</strong> without needing
+                                            OTP (one-time password) or Transaction PIN. It can also be used on our USSD
+                                            Channel <strong>*329#</strong>
+                                        </p>
+                                    </div>
+                                    <form>
+                                        <div class="input with-icon password-check">
+                                            <input type="password" placeholder="Current PIN" />
+                                            <label>Current PIN</label>
+                                            <a class="toggle active">
+                                                <i class="icon sm hide">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.39639 5.6343L9.36389 7.60175C9.36577 7.56682 9.37452 7.53425 9.37452 7.49863C9.37452 6.46307 8.53514 5.62365 7.49952 5.62365C7.46389 5.62365 7.43139 5.63239 7.39639 5.6343ZM4.70513 6.12552L5.67201 7.09175C5.64263 7.22307 5.62451 7.35863 5.62451 7.49863C5.62451 8.53425 6.46389 9.37363 7.49952 9.37363C7.64014 9.37363 7.77577 9.35557 7.90639 9.32675L8.87327 10.2931C8.45702 10.4981 7.99452 10.6236 7.49952 10.6236C5.77389 10.6236 4.37451 9.22494 4.37451 7.49863C4.37451 7.00363 4.50013 6.54176 4.70513 6.12552ZM1.24951 2.66929L2.67388 4.09427L2.95827 4.37866C1.92702 5.18615 1.11264 6.25988 0.624512 7.49863C1.70451 10.2418 4.37326 12.1861 7.49952 12.1861C8.46827 12.1861 9.39264 11.9987 10.2395 11.6599L10.5045 11.9243L12.3289 13.7493L13.1245 12.9537L2.04514 1.87427L1.24951 2.66929ZM7.49952 4.37365C9.22514 4.37365 10.6245 5.77304 10.6245 7.49863C10.6245 7.90238 10.542 8.28557 10.4026 8.63988L12.2289 10.4661C13.1714 9.67801 13.917 8.66113 14.3745 7.49863C13.2945 4.75554 10.6264 2.81115 7.49952 2.81115C6.62452 2.81115 5.78763 2.96802 5.00951 3.24741L6.35827 4.59617C6.71264 4.45678 7.09577 4.37365 7.49952 4.37365Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                                <i class="icon sm show">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.49999 5.62378C6.46437 5.62378 5.625 6.46314 5.625 7.49876C5.625 8.53439 6.46437 9.37376 7.49999 9.37376C8.53562 9.37376 9.37499 8.53439 9.37499 7.49876C9.37499 6.46314 8.53562 5.62378 7.49999 5.62378ZM7.49999 10.6238C5.77437 10.6238 4.375 9.22439 4.375 7.49876C4.375 5.77316 5.77437 4.37378 7.49999 4.37378C9.22562 4.37378 10.625 5.77316 10.625 7.49876C10.625 9.22439 9.22562 10.6238 7.49999 10.6238ZM7.49999 2.81128C4.37375 2.81128 1.705 4.75567 0.625 7.49876C1.705 10.2419 4.37375 12.1863 7.49999 12.1863C10.6269 12.1863 13.295 10.2419 14.375 7.49876C13.295 4.75567 10.6269 2.81128 7.49999 2.81128Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                        <hr />
+                                        <div class="input with-icon password-check">
+                                            <input type="password" placeholder="New PIN" />
+                                            <label>New PIN</label>
+                                            <a class="toggle active">
+                                                <i class="icon sm hide">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.39639 5.6343L9.36389 7.60175C9.36577 7.56682 9.37452 7.53425 9.37452 7.49863C9.37452 6.46307 8.53514 5.62365 7.49952 5.62365C7.46389 5.62365 7.43139 5.63239 7.39639 5.6343ZM4.70513 6.12552L5.67201 7.09175C5.64263 7.22307 5.62451 7.35863 5.62451 7.49863C5.62451 8.53425 6.46389 9.37363 7.49952 9.37363C7.64014 9.37363 7.77577 9.35557 7.90639 9.32675L8.87327 10.2931C8.45702 10.4981 7.99452 10.6236 7.49952 10.6236C5.77389 10.6236 4.37451 9.22494 4.37451 7.49863C4.37451 7.00363 4.50013 6.54176 4.70513 6.12552ZM1.24951 2.66929L2.67388 4.09427L2.95827 4.37866C1.92702 5.18615 1.11264 6.25988 0.624512 7.49863C1.70451 10.2418 4.37326 12.1861 7.49952 12.1861C8.46827 12.1861 9.39264 11.9987 10.2395 11.6599L10.5045 11.9243L12.3289 13.7493L13.1245 12.9537L2.04514 1.87427L1.24951 2.66929ZM7.49952 4.37365C9.22514 4.37365 10.6245 5.77304 10.6245 7.49863C10.6245 7.90238 10.542 8.28557 10.4026 8.63988L12.2289 10.4661C13.1714 9.67801 13.917 8.66113 14.3745 7.49863C13.2945 4.75554 10.6264 2.81115 7.49952 2.81115C6.62452 2.81115 5.78763 2.96802 5.00951 3.24741L6.35827 4.59617C6.71264 4.45678 7.09577 4.37365 7.49952 4.37365Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                                <i class="icon sm show">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.49999 5.62378C6.46437 5.62378 5.625 6.46314 5.625 7.49876C5.625 8.53439 6.46437 9.37376 7.49999 9.37376C8.53562 9.37376 9.37499 8.53439 9.37499 7.49876C9.37499 6.46314 8.53562 5.62378 7.49999 5.62378ZM7.49999 10.6238C5.77437 10.6238 4.375 9.22439 4.375 7.49876C4.375 5.77316 5.77437 4.37378 7.49999 4.37378C9.22562 4.37378 10.625 5.77316 10.625 7.49876C10.625 9.22439 9.22562 10.6238 7.49999 10.6238ZM7.49999 2.81128C4.37375 2.81128 1.705 4.75567 0.625 7.49876C1.705 10.2419 4.37375 12.1863 7.49999 12.1863C10.6269 12.1863 13.295 10.2419 14.375 7.49876C13.295 4.75567 10.6269 2.81128 7.49999 2.81128Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                            <div class="checker">
+                                                <a class="item checked">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>Minimum of 8 Characters</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>At least one Number</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>At least one Special Character (#!*)</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="input with-icon password-check">
+                                            <input type="password" placeholder="Confirm New PIN" />
+                                            <label>Confirm New PIN</label>
+                                            <a class="toggle active">
+                                                <i class="icon sm hide">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.39639 5.6343L9.36389 7.60175C9.36577 7.56682 9.37452 7.53425 9.37452 7.49863C9.37452 6.46307 8.53514 5.62365 7.49952 5.62365C7.46389 5.62365 7.43139 5.63239 7.39639 5.6343ZM4.70513 6.12552L5.67201 7.09175C5.64263 7.22307 5.62451 7.35863 5.62451 7.49863C5.62451 8.53425 6.46389 9.37363 7.49952 9.37363C7.64014 9.37363 7.77577 9.35557 7.90639 9.32675L8.87327 10.2931C8.45702 10.4981 7.99452 10.6236 7.49952 10.6236C5.77389 10.6236 4.37451 9.22494 4.37451 7.49863C4.37451 7.00363 4.50013 6.54176 4.70513 6.12552ZM1.24951 2.66929L2.67388 4.09427L2.95827 4.37866C1.92702 5.18615 1.11264 6.25988 0.624512 7.49863C1.70451 10.2418 4.37326 12.1861 7.49952 12.1861C8.46827 12.1861 9.39264 11.9987 10.2395 11.6599L10.5045 11.9243L12.3289 13.7493L13.1245 12.9537L2.04514 1.87427L1.24951 2.66929ZM7.49952 4.37365C9.22514 4.37365 10.6245 5.77304 10.6245 7.49863C10.6245 7.90238 10.542 8.28557 10.4026 8.63988L12.2289 10.4661C13.1714 9.67801 13.917 8.66113 14.3745 7.49863C13.2945 4.75554 10.6264 2.81115 7.49952 2.81115C6.62452 2.81115 5.78763 2.96802 5.00951 3.24741L6.35827 4.59617C6.71264 4.45678 7.09577 4.37365 7.49952 4.37365Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                                <i class="icon sm show">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.49999 5.62378C6.46437 5.62378 5.625 6.46314 5.625 7.49876C5.625 8.53439 6.46437 9.37376 7.49999 9.37376C8.53562 9.37376 9.37499 8.53439 9.37499 7.49876C9.37499 6.46314 8.53562 5.62378 7.49999 5.62378ZM7.49999 10.6238C5.77437 10.6238 4.375 9.22439 4.375 7.49876C4.375 5.77316 5.77437 4.37378 7.49999 4.37378C9.22562 4.37378 10.625 5.77316 10.625 7.49876C10.625 9.22439 9.22562 10.6238 7.49999 10.6238ZM7.49999 2.81128C4.37375 2.81128 1.705 4.75567 0.625 7.49876C1.705 10.2419 4.37375 12.1863 7.49999 12.1863C10.6269 12.1863 13.295 10.2419 14.375 7.49876C13.295 4.75567 10.6269 2.81128 7.49999 2.81128Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                            <div class="checker">
+                                                <a class="item checked">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>Minimum of 8 Characters</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>At least one Number</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>At least one Special Character (#^*)</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </form>
+                                </div>
+                                 Transaction PIN
+                                <div class="setting-sect" id="setting-transaction-pin">
+                                    <div class="head">
+                                        <h4>Transaction PIN</h4>
+                                        <p>
+                                            This allows you to send funds <strong>above ₦20,000</strong> using
+                                            your
+                                            Authorization PIN. It
+                                            can only be used on this web platform.
+                                        </p>
+                                    </div>
+                                    <form>
+                                        <div class="input with-icon password-check">
+                                            <input type="password" placeholder="Current PIN" />
+                                            <label>Current PIN</label>
+                                            <a class="toggle active">
+                                                <i class="icon sm hide">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.39639 5.6343L9.36389 7.60175C9.36577 7.56682 9.37452 7.53425 9.37452 7.49863C9.37452 6.46307 8.53514 5.62365 7.49952 5.62365C7.46389 5.62365 7.43139 5.63239 7.39639 5.6343ZM4.70513 6.12552L5.67201 7.09175C5.64263 7.22307 5.62451 7.35863 5.62451 7.49863C5.62451 8.53425 6.46389 9.37363 7.49952 9.37363C7.64014 9.37363 7.77577 9.35557 7.90639 9.32675L8.87327 10.2931C8.45702 10.4981 7.99452 10.6236 7.49952 10.6236C5.77389 10.6236 4.37451 9.22494 4.37451 7.49863C4.37451 7.00363 4.50013 6.54176 4.70513 6.12552ZM1.24951 2.66929L2.67388 4.09427L2.95827 4.37866C1.92702 5.18615 1.11264 6.25988 0.624512 7.49863C1.70451 10.2418 4.37326 12.1861 7.49952 12.1861C8.46827 12.1861 9.39264 11.9987 10.2395 11.6599L10.5045 11.9243L12.3289 13.7493L13.1245 12.9537L2.04514 1.87427L1.24951 2.66929ZM7.49952 4.37365C9.22514 4.37365 10.6245 5.77304 10.6245 7.49863C10.6245 7.90238 10.542 8.28557 10.4026 8.63988L12.2289 10.4661C13.1714 9.67801 13.917 8.66113 14.3745 7.49863C13.2945 4.75554 10.6264 2.81115 7.49952 2.81115C6.62452 2.81115 5.78763 2.96802 5.00951 3.24741L6.35827 4.59617C6.71264 4.45678 7.09577 4.37365 7.49952 4.37365Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                                <i class="icon sm show">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.49999 5.62378C6.46437 5.62378 5.625 6.46314 5.625 7.49876C5.625 8.53439 6.46437 9.37376 7.49999 9.37376C8.53562 9.37376 9.37499 8.53439 9.37499 7.49876C9.37499 6.46314 8.53562 5.62378 7.49999 5.62378ZM7.49999 10.6238C5.77437 10.6238 4.375 9.22439 4.375 7.49876C4.375 5.77316 5.77437 4.37378 7.49999 4.37378C9.22562 4.37378 10.625 5.77316 10.625 7.49876C10.625 9.22439 9.22562 10.6238 7.49999 10.6238ZM7.49999 2.81128C4.37375 2.81128 1.705 4.75567 0.625 7.49876C1.705 10.2419 4.37375 12.1863 7.49999 12.1863C10.6269 12.1863 13.295 10.2419 14.375 7.49876C13.295 4.75567 10.6269 2.81128 7.49999 2.81128Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                        <hr />
+                                        <div class="input with-icon password-check">
+                                            <input type="password" placeholder="New PIN" />
+                                            <label>New PIN</label>
+                                            <a class="toggle active">
+                                                <i class="icon sm hide">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.39639 5.6343L9.36389 7.60175C9.36577 7.56682 9.37452 7.53425 9.37452 7.49863C9.37452 6.46307 8.53514 5.62365 7.49952 5.62365C7.46389 5.62365 7.43139 5.63239 7.39639 5.6343ZM4.70513 6.12552L5.67201 7.09175C5.64263 7.22307 5.62451 7.35863 5.62451 7.49863C5.62451 8.53425 6.46389 9.37363 7.49952 9.37363C7.64014 9.37363 7.77577 9.35557 7.90639 9.32675L8.87327 10.2931C8.45702 10.4981 7.99452 10.6236 7.49952 10.6236C5.77389 10.6236 4.37451 9.22494 4.37451 7.49863C4.37451 7.00363 4.50013 6.54176 4.70513 6.12552ZM1.24951 2.66929L2.67388 4.09427L2.95827 4.37866C1.92702 5.18615 1.11264 6.25988 0.624512 7.49863C1.70451 10.2418 4.37326 12.1861 7.49952 12.1861C8.46827 12.1861 9.39264 11.9987 10.2395 11.6599L10.5045 11.9243L12.3289 13.7493L13.1245 12.9537L2.04514 1.87427L1.24951 2.66929ZM7.49952 4.37365C9.22514 4.37365 10.6245 5.77304 10.6245 7.49863C10.6245 7.90238 10.542 8.28557 10.4026 8.63988L12.2289 10.4661C13.1714 9.67801 13.917 8.66113 14.3745 7.49863C13.2945 4.75554 10.6264 2.81115 7.49952 2.81115C6.62452 2.81115 5.78763 2.96802 5.00951 3.24741L6.35827 4.59617C6.71264 4.45678 7.09577 4.37365 7.49952 4.37365Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                                <i class="icon sm show">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.49999 5.62378C6.46437 5.62378 5.625 6.46314 5.625 7.49876C5.625 8.53439 6.46437 9.37376 7.49999 9.37376C8.53562 9.37376 9.37499 8.53439 9.37499 7.49876C9.37499 6.46314 8.53562 5.62378 7.49999 5.62378ZM7.49999 10.6238C5.77437 10.6238 4.375 9.22439 4.375 7.49876C4.375 5.77316 5.77437 4.37378 7.49999 4.37378C9.22562 4.37378 10.625 5.77316 10.625 7.49876C10.625 9.22439 9.22562 10.6238 7.49999 10.6238ZM7.49999 2.81128C4.37375 2.81128 1.705 4.75567 0.625 7.49876C1.705 10.2419 4.37375 12.1863 7.49999 12.1863C10.6269 12.1863 13.295 10.2419 14.375 7.49876C13.295 4.75567 10.6269 2.81128 7.49999 2.81128Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                            <div class="checker">
+                                                <a class="item checked">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>Minimum of 8 Characters</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>At least one Number</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>At least one Special Character (#^*)</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="input with-icon password-check">
+                                            <input type="password" placeholder="Confirm New PIN" />
+                                            <label>Confirm New PIN</label>
+                                            <a class="toggle active">
+                                                <i class="icon sm hide">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.39639 5.6343L9.36389 7.60175C9.36577 7.56682 9.37452 7.53425 9.37452 7.49863C9.37452 6.46307 8.53514 5.62365 7.49952 5.62365C7.46389 5.62365 7.43139 5.63239 7.39639 5.6343ZM4.70513 6.12552L5.67201 7.09175C5.64263 7.22307 5.62451 7.35863 5.62451 7.49863C5.62451 8.53425 6.46389 9.37363 7.49952 9.37363C7.64014 9.37363 7.77577 9.35557 7.90639 9.32675L8.87327 10.2931C8.45702 10.4981 7.99452 10.6236 7.49952 10.6236C5.77389 10.6236 4.37451 9.22494 4.37451 7.49863C4.37451 7.00363 4.50013 6.54176 4.70513 6.12552ZM1.24951 2.66929L2.67388 4.09427L2.95827 4.37866C1.92702 5.18615 1.11264 6.25988 0.624512 7.49863C1.70451 10.2418 4.37326 12.1861 7.49952 12.1861C8.46827 12.1861 9.39264 11.9987 10.2395 11.6599L10.5045 11.9243L12.3289 13.7493L13.1245 12.9537L2.04514 1.87427L1.24951 2.66929ZM7.49952 4.37365C9.22514 4.37365 10.6245 5.77304 10.6245 7.49863C10.6245 7.90238 10.542 8.28557 10.4026 8.63988L12.2289 10.4661C13.1714 9.67801 13.917 8.66113 14.3745 7.49863C13.2945 4.75554 10.6264 2.81115 7.49952 2.81115C6.62452 2.81115 5.78763 2.96802 5.00951 3.24741L6.35827 4.59617C6.71264 4.45678 7.09577 4.37365 7.49952 4.37365Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                                <i class="icon sm show">
+                                                    <svg width="15" height="15" viewBox="0 0 15 15" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <g opacity="0.5">
+                                                            <path d="M7.49999 5.62378C6.46437 5.62378 5.625 6.46314 5.625 7.49876C5.625 8.53439 6.46437 9.37376 7.49999 9.37376C8.53562 9.37376 9.37499 8.53439 9.37499 7.49876C9.37499 6.46314 8.53562 5.62378 7.49999 5.62378ZM7.49999 10.6238C5.77437 10.6238 4.375 9.22439 4.375 7.49876C4.375 5.77316 5.77437 4.37378 7.49999 4.37378C9.22562 4.37378 10.625 5.77316 10.625 7.49876C10.625 9.22439 9.22562 10.6238 7.49999 10.6238ZM7.49999 2.81128C4.37375 2.81128 1.705 4.75567 0.625 7.49876C1.705 10.2419 4.37375 12.1863 7.49999 12.1863C10.6269 12.1863 13.295 10.2419 14.375 7.49876C13.295 4.75567 10.6269 2.81128 7.49999 2.81128Z"
+                                                                  fill="#2F1343" />
+                                                        </g>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                            <div class="checker">
+                                                <a class="item checked">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>Minimum of 8 Characters</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>At least one Number</span>
+                                                </a>
+                                                <a class="item">
+                                                    <i class="icon auto">
+                                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                             xmlns="http://www.w3.org/2000/svg">
+                                                            <g opacity="0.2">
+                                                                <path d="M15.75 5.24987L6.75 14.2499L2.625 10.1249L3.68566 9.06422L6.75 12.1286L14.6894 4.18921L15.75 5.24987Z"
+                                                                      fill="white" />
+                                                            </g>
+                                                        </svg>
+                                                    </i>
+                                                    <span>At least one Special Character (#^*)</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Update</button>
+                                    </form>
+                                </div>
+                                 Transaction PIN / Empty
+                                <div class="setting-sect" id="setting-transaction-no-pin">
+                                    <div class="head">
+                                        <h4>Transaction PIN (Empty)</h4>
+                                    </div>
+                                    <div class="empty-info">
+                                        <i class="icon auto">
+                                            <svg width="50" height="55" viewBox="0 0 50 55" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M0.945312 8.87519L4.04379 5.79766L48.2554 50.0093L45.1779 53.1078L39.7074 47.6373C36.2996 50.8454 32.1773 53.2111 27.6331 54.3208C15.1141 51.2639 5.79764 38.6721 5.79764 25.2069V13.7275L0.945312 8.87519ZM27.6331 0.945312L49.4685 10.65V25.2069C49.4685 30.7371 47.8971 36.12 45.1776 40.7555L12.2184 7.79628L27.6331 0.945312Z"
+                                                      fill="#FBB700" />
+                                            </svg>
+                                        </i>
+                                        <p>
+                                            Haven't set up Transaction PIN? <br />
+                                            This is needed in combination with your Authorization PIN for transactions
+                                            above ₦20,000
+                                        </p>
+                                        <a class="btn btn-link" href="./cards-list.html" data-toggle="modal"
+                                           data-target="#modal-setup-transpin">
+                                            <span>Setup Now</span>
+                                            <i class="icon auto">
+                                                <svg width="6" height="9" viewBox="0 0 6 9" fill="none"
+                                                     xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 7.93951L3.43952 4.50001L0 1.0605L1.0605 0L5.56052 4.50001L1.0605 9.00001L0 7.93951Z"
+                                                          fill="#5D2684" />
+                                                </svg>
+                                            </i>
+                                        </a>
+                                    </div>
+                                    <div class="pattern"></div>
+                                </div>
+                                 Delete Account
+                                <div class="setting-sect" id="setting-notifications">
+                                    <div class="head">
+                                        <h4>Delete Account</h4>
+                                        <p>Please be aware that, completing this process will lead to total removal of your account from our platform</p>
+                                    </div>
+                                    <form class="options">
+                                        <label>Emails</label>
+                                        <div class="item">
+                                            <div>
+                                                <p>Unsubscribe from our mail list</p>
+                                            </div>
+                                            <div>
+                                                <input class="switch" type="checkbox" value="">
+                                            </div>
+                                        </div>
+
+                                        <label>SMS</label>
+                                        <div class="item">
+                                            <div>
+                                                <p>Unsubscribe from our sms list</p>
+                                            </div>
+                                            <div>
+                                                <input class="switch" type="checkbox" value="">
+                                            </div>
+                                        </div>
+                                        <div class="input pt-4">
+                                            <textarea placeholder="Your Reasons"></textarea>
+                                            <label>Your Reasons</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-danger mb-1">Delete</button>
+                                    </form>
+                                </div>
+                                 Support
+                                <div class="setting-sect" id="setting-support">
+                                    <div class="head">
+                                        <h4>Support</h4>
+                                        <p>
+                                            Need help? Got any problem with Education access? Reach us any of our support
+                                            channels below
+                                        </p>
+                                    </div>
+
+                                    <div class="card support-card">
+                                        <i class="icon auto">
+                                            <svg width="35" height="35" viewBox="0 0 35 35" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.83464 2.91357H29.168C30.7772 2.91357 32.0846 4.21878 32.0846 5.83024V23.3302C32.0846 24.9402 30.7772 26.2469 29.168 26.2469L20.2784 26.2498L14.8724 31.653C14.5915 31.9338 14.2265 32.0765 13.8584 32.0802L13.8555 32.0832H13.1263C12.3209 32.0832 11.668 31.4303 11.668 30.6248V26.2498H5.83464C4.2238 26.2498 2.91797 24.944 2.91797 23.3332L2.93222 5.83024C2.93222 4.21878 4.22462 2.91357 5.83464 2.91357ZM17.7718 8.01774C16.4846 8.01774 15.4445 8.28287 14.6558 8.81253C13.873 9.3371 13.4507 10.1854 13.5194 11.2194H16.3876C16.3992 10.8107 16.5368 10.5033 16.7978 10.2964C17.0587 10.0896 17.3833 9.98605 17.7718 9.98605C18.2532 9.98605 18.6247 10.1126 18.8856 10.3648C19.1466 10.6171 19.2758 10.9551 19.2758 11.3788C19.2758 11.7874 19.1631 12.1485 18.9369 12.4611C18.7165 12.7739 18.411 13.0354 18.0225 13.2473C17.2687 13.7063 16.7516 14.1105 16.4673 14.4636C16.1833 14.8166 16.0374 15.3462 16.0316 16.0472H18.971C18.971 15.6285 19.0343 15.298 19.1619 15.0559C19.2952 14.8088 19.5484 14.5785 19.9195 14.3667C20.5864 14.064 21.1339 13.6488 21.5631 13.1191C21.9979 12.5895 22.2152 12.0093 22.2152 11.3788C22.2152 10.3499 21.8191 9.53164 21.0246 8.92643C20.236 8.32122 19.152 8.01774 17.7718 8.01774ZM16.043 17.4998V20.4165H18.9596V17.4998H16.043Z"
+                                                      fill="#FBB700" />
+                                            </svg>
+                                        </i>
+                                        <div>
+                                            <label>Got Questions?</label>
+                                            <p>
+                                                Check out our Frequently Asked Questions <a href="./faq.html">Here</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card support-card">
+                                        <i class="icon auto">
+                                            <svg width="35" height="35" viewBox="0 0 35 35" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M21.875 17.4971H24.7917C24.7917 13.4692 21.5279 10.2054 17.5 10.2054V13.1221C19.915 13.1221 21.875 15.0821 21.875 17.4971ZM27.7083 17.4971H30.625C30.625 10.2477 24.7494 4.37207 17.5 4.37207V7.28874C23.1365 7.28874 27.7083 11.8592 27.7083 17.4971ZM29.1667 22.6013C27.3481 22.6013 25.5981 22.3082 23.9575 21.7729C23.4529 21.6096 22.8769 21.7292 22.4758 22.1302L19.2675 25.3429C15.1361 23.2415 11.76 19.8684 9.65853 15.7398L12.8669 12.5198C13.2679 12.1187 13.3875 11.5442 13.2227 11.0396C12.6875 9.4004 12.3958 7.64895 12.3958 5.8304C12.3958 5.02395 11.744 4.37207 10.9375 4.37207H5.83333C5.02686 4.37207 4.375 5.02395 4.375 5.8304C4.375 19.5222 15.4744 30.6221 29.1667 30.6221C29.9731 30.6221 30.625 29.9702 30.625 29.1638V24.0596C30.625 23.2532 29.9731 22.6013 29.1667 22.6013Z"
+                                                      fill="#FBB700" />
+                                            </svg>
+                                        </i>
+                                        <div>
+                                            <label>Give us a call on:</label>
+                                            <p>
+                                                <a href="tel:+2348123486864">(+234) 08123486864</a> or <a href="tel:+2348085665940">
+                                                    (+234)
+                                                    08085665940
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card support-card">
+                                        <i class="icon auto">
+                                            <svg width="35" height="35" viewBox="0 0 35 35" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M27.4818 10.1856H23.6537L15.3138 5.81062L5.81186 10.8007L5.83464 24.7917C4.2238 24.7917 2.91797 23.4859 2.91797 21.875L2.94076 10.4591C2.94076 9.50195 3.32813 8.84118 4.10286 8.4766L15.3138 2.93945L26.3197 8.4766C27.0032 8.88668 27.3906 9.45645 27.4818 10.1856ZM10.2096 11.6667H29.168C30.7788 11.6667 32.0846 12.9726 32.0846 14.5834V27.7084C32.0846 29.3192 30.7788 30.625 29.168 30.625H10.2096C8.5988 30.625 7.29297 29.3192 7.29297 27.7084V14.5834C7.29297 12.9726 8.5988 11.6667 10.2096 11.6667ZM29.1907 17.0216V14.5606L19.6888 19.4141L10.1869 14.5606V17.0216L19.6888 21.875L29.1907 17.0216Z"
+                                                      fill="#FBB700" />
+                                            </svg>
+                                        </i>
+                                        <div>
+                                            <label>Send us an email at:</label>
+                                            <p>
+                                                <a href="">customerservice@educationaccess.com</a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="card social-card">
+                                        <label>Our social media channels:</label>
+                                        <div class="social-links">
+                                             Facebook
+                                            <a href="" target="_blank"
+                                               data-toggle="tooltip" data-placement="bottom"
+                                               title="Educationaccess &rightarrow;">
+                                                <i class="icon auto">
+                                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M2 0H16C17.1046 0 18 0.89543 18 2V16C18 17.1046 17.1046 18 16 18H2C0.89543 18 0 17.1046 0 16V2C0 0.89543 0.89543 0 2 0ZM14.9994 1.99807H12.4994C10.5664 1.99807 8.9994 3.56407 8.9994 5.49807V7.9981H6.99939V10.9981H8.9994V17.9981H11.9994V10.9981H14.9994V7.9981H11.9994V5.99807C11.9994 5.44507 12.4474 4.99807 12.9994 4.99807H14.9994V1.99807Z"
+                                                              fill="url(#paint0_linear)" />
+                                                        <defs>
+                                                            <linearGradient id="paint0_linear" x1="9" y1="0" x2="9"
+                                                                            y2="18" gradientUnits="userSpaceOnUse">
+                                                                <stop stop-color="#2ca9de" />
+                                                                <stop offset="1" stop-color="#423978" />
+                                                            </linearGradient>
+                                                        </defs>
+                                                    </svg>
+                                                </i>
+                                            </a>
+
+                                             Twitter
+                                            <a href="" target="_blank" data-toggle="tooltip"
+                                               data-placement="bottom" title="Educationaccess &rightarrow;">
+                                                <i class="icon auto">
+                                                    <svg width="22" height="17" viewBox="0 0 22 17" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M21.4575 2.01238C20.6879 2.35373 19.8607 2.58442 18.9927 2.68815C19.8786 2.15701 20.5592 1.31598 20.8796 0.31378C20.0503 0.80564 19.1319 1.16278 18.1543 1.3552C17.3715 0.52112 16.2562 0 15.0218 0C12.6517 0 10.73 1.92147 10.73 4.29155C10.73 4.6279 10.768 4.95546 10.8412 5.2696C7.27438 5.0906 4.11204 3.38203 1.99538 0.78551C1.62594 1.41935 1.4143 2.15656 1.4143 2.94309C1.4143 4.43204 2.17193 5.74563 3.32352 6.5153C2.62008 6.4929 1.95825 6.2999 1.37968 5.97846C1.37927 5.99639 1.37927 6.0143 1.37927 6.0324C1.37927 8.1118 2.85862 9.8463 4.82188 10.2406C4.46178 10.3387 4.08263 10.3912 3.69123 10.3912C3.41469 10.3912 3.14584 10.3642 2.88375 10.3142C3.4299 12.0191 5.01482 13.26 6.89283 13.2945C5.42405 14.4457 3.57356 15.1318 1.56282 15.1318C1.21641 15.1318 0.874803 15.1114 0.539062 15.0717C2.43832 16.2894 4.6942 17 7.11779 17C15.0117 17 19.3285 10.4605 19.3285 4.78918C19.3285 4.60314 19.3243 4.41805 19.316 4.23395C20.1546 3.62886 20.8822 2.87302 21.4575 2.01238Z"
+                                                              fill="url(#paint0_linear)" />
+                                                        <defs>
+                                                            <linearGradient id="paint0_linear" x1="10.9983" y1="0"
+                                                                            x2="10.9983" y2="17" gradientUnits="userSpaceOnUse">
+                                                                <stop stop-color="#4A3292" />
+                                                                <stop offset="1" stop-color="#AD3193" />
+                                                            </linearGradient>
+                                                        </defs>
+                                                    </svg>
+                                                </i>
+                                            </a>
+
+                                             Whatsapp
+                                            <a href="tel:+234) 08123486864" target="_blank" data-toggle="tooltip"
+                                               data-placement="bottom" title="+234) 08123486864 &rightarrow;">
+                                                <i class="icon auto">
+                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill-rule="evenodd" clip-rule="evenodd"
+                                                              d="M14.748 11.9562C14.9917 12.0896 15.1553 12.1584 15.2137 12.2642C15.2721 12.3703 15.2536 12.8684 15.0245 13.4409C14.7954 14.0136 13.7589 14.5361 13.3013 14.5601C12.8441 14.5848 12.8314 14.9171 10.3404 13.8267C7.84975 12.7357 6.35113 10.0834 6.233 9.9128C6.11488 9.7427 5.26854 8.5266 5.3143 7.30327C5.36005 6.07952 6.02499 5.50188 6.26221 5.26206C6.49943 5.02127 6.77105 4.96934 6.93688 4.97551L7.41295 5.01413C7.55801 5.01965 7.7683 4.94468 7.95684 5.44995L8.6546 7.32469C8.712 7.45125 8.748 7.59793 8.6588 7.76084L8.3946 8.1663L8.0052 8.588C7.87604 8.7071 7.74104 8.8369 7.87701 9.091C8.013 9.3455 8.4816 10.1783 9.1962 10.8652C10.1139 11.7475 10.9057 12.0406 11.1498 12.174C11.3938 12.308 11.5395 12.2931 11.6911 12.1324L12.515 11.1874C12.6899 10.9444 12.8541 10.9922 13.079 11.0836L14.748 11.9562ZM10 0C15.5228 0 20 4.47715 20 10C20 15.5229 15.5228 20 10 20C8.0322 20 6.19707 19.4316 4.64996 18.45L0 20L1.54999 15.35C0.5684 13.8029 0 11.9678 0 10C0 4.47715 4.47715 0 10 0ZM10 2.00001C5.58172 2.00001 2 5.58173 2 10C2 11.7176 2.54129 13.3088 3.46258 14.6122L2.5 17.5L5.38775 16.5374C6.69122 17.4587 8.2824 18 10 18C14.4183 18 18 14.4183 18 10C18 5.58173 14.4183 2.00001 10 2.00001Z"
+                                                              fill="url(#paint0_linear)" />
+                                                        <defs>
+                                                            <linearGradient id="paint0_linear" x1="10" y1="0" x2="10"
+                                                                            y2="20" gradientUnits="userSpaceOnUse">
+                                                                <stop stop-color="#4A3292" />
+                                                                <stop offset="1" stop-color="#AD3193" />
+                                                            </linearGradient>
+                                                        </defs>
+                                                    </svg>
+                                                </i>
+                                            </a>
+
+                                             Instagram
+                                            <a href="" target="_blank"
+                                               data-toggle="tooltip" data-placement="bottom"
+                                               title="Educationaccess &rightarrow;">
+                                                <i class="icon auto">
+                                                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M5.8 0H14.2C17.4032 0 20 2.59675 20 5.8V14.2C20 17.4033 17.4032 20 14.2 20H5.8C2.59675 20 0 17.4033 0 14.2V5.8C0 2.59675 2.59675 0 5.8 0ZM5.6 1.99998C3.61177 1.99998 2 3.61176 2 5.59998V14.4C2 16.3882 3.61177 18 5.6 18H14.4C16.3882 18 18 16.3882 18 14.4V5.59998C18 3.61176 16.3882 1.99998 14.4 1.99998H5.6ZM15.25 3.49998C15.9404 3.49998 16.5 4.05963 16.5 4.74998C16.5 5.44034 15.9404 5.99998 15.25 5.99998C14.5596 5.99998 14 5.44034 14 4.74998C14 4.05963 14.5596 3.49998 15.25 3.49998ZM10 4.99998C12.7614 4.99998 15 7.23856 15 9.99998C15 12.7614 12.7614 15 10 15C7.23857 15 5 12.7614 5 9.99998C5 7.23856 7.23857 4.99998 10 4.99998ZM10 6.99998C8.3431 6.99998 7 8.34318 7 9.99998C7 11.6569 8.3431 13 10 13C11.6569 13 13 11.6569 13 9.99998C13 8.34318 11.6569 6.99998 10 6.99998Z"
+                                                              fill="url(#paint0_linear)" />
+                                                        <defs>
+                                                            <linearGradient id="paint0_linear" x1="10" y1="0" x2="10"
+                                                                            y2="20" gradientUnits="userSpaceOnUse">
+                                                                <stop stop-color="#4A3292" />
+                                                                <stop offset="1" stop-color="#AD3193" />
+                                                            </linearGradient>
+                                                        </defs>
+                                                    </svg>
+
+                                                </i>
+                                            </a>
+
+                                             Youtube
+                                            <a href="" target="_blank"
+                                               data-toggle="tooltip" data-placement="bottom"
+                                               title="Educationaccess &rightarrow;">
+                                                <i class="icon auto">
+                                                    <svg width="20" height="14" viewBox="0 0 20 14" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M7.98438 10L13.1875 7.00002L7.98438 4.00002V10ZM19.5625 2.17192C19.6875 2.64062 19.7812 3.27342 19.8438 4.07032C19.9063 4.86722 19.9375 5.56253 19.9375 6.15623L19.9844 7.00002C19.9844 9.18752 19.8438 10.7969 19.5625 11.8281C19.3125 12.7344 18.7344 13.3125 17.8281 13.5625C17.3594 13.6875 16.4766 13.7812 15.1797 13.8437C13.8828 13.9062 12.6875 13.9375 11.5938 13.9375L10 13.9844C5.8125 13.9844 3.20312 13.8437 2.17187 13.5625C1.26561 13.3125 0.687495 12.7344 0.437495 11.8281C0.312495 11.3594 0.218745 10.7266 0.156245 9.92972C0.093745 9.13282 0.062495 8.43753 0.062495 7.84373L0.015625 7.00002C0.015625 4.81252 0.156245 3.20312 0.437495 2.17192C0.687495 1.26562 1.26561 0.687525 2.17187 0.437525C2.64062 0.312525 3.52343 0.218825 4.8203 0.156225C6.11718 0.0937247 7.31249 0.0625248 8.40629 0.0625248L10 0.015625C14.1875 0.015625 16.7969 0.156225 17.8281 0.437525C18.7344 0.687525 19.3125 1.26562 19.5625 2.17192Z"
+                                                              fill="url(#paint0_linear)" />
+                                                        <defs>
+                                                            <linearGradient id="paint0_linear" x1="10" y1="0.015625"
+                                                                            x2="10" y2="13.9844" gradientUnits="userSpaceOnUse">
+                                                                <stop stop-color="#4A3292" />
+                                                                <stop offset="1" stop-color="#AD3193" />
+                                                            </linearGradient>
+                                                        </defs>
+                                                    </svg>
+                                                </i>
+                                            </a>
+
+                                             Linkedin
+                                            <a href=""
+                                               target="_blank" data-toggle="tooltip"
+                                               data-placement="bottom"
+                                               title="Educationaccess  &rightarrow;">
+                                                <i class="icon auto">
+                                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                                         xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M18 18H14V11.25C14 10.1914 12.8121 9.3058 11.7535 9.3058C10.6949 9.3058 10 10.1914 10 11.25V18H6.00001V6H10V8C10.6623 6.92857 12.3564 6.23727 13.525 6.23727C15.9965 6.23727 18 8.2786 18 10.75V18ZM4 18H0V6H4V18ZM2.00001 0C3.10458 0 4.00001 0.89543 4.00001 2C4.00001 3.10457 3.10458 4 2.00001 4C0.89544 4 1.00136e-05 3.10457 1.00136e-05 2C1.00136e-05 0.89543 0.89544 0 2.00001 0Z"
+                                                              fill="url(#paint0_linear)" />
+                                                        <defs>
+                                                            <linearGradient id="paint0_linear" x1="9" y1="0" x2="9"
+                                                                            y2="18" gradientUnits="userSpaceOnUse">
+                                                                <stop stop-color="#4A3292" />
+                                                                <stop offset="1" stop-color="#AD3193" />
+                                                            </linearGradient>
+                                                        </defs>
+                                                    </svg>
+                                                </i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                             Loading
+                            <div class="loading">
+                                <div class="la-ball-pulse">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>*@
+    </main>
+
+    <script src="~/assets/components/jquery/jquery.min.js"></script>
+    <script src="~/assets/components/popper/popper.min.js"></script>
+    <script src="~/assets/components/bootstrap/bootstrap.min.js"></script>
+    <script src="~/assets/components/cleave/cleave.min.js"></script>
+    <script src="~/assets/js/scripts.min.js"></script>
+</body>
+
+</html>

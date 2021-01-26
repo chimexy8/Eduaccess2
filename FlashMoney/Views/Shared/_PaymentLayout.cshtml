@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>@ViewData["Header"]</title>
+
+    <link rel="shortcut icon" href="~/assets/img/png/fav-icon.png" type="image/x-icon" />
+
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="~/assets/components/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/assets/components/animate/animate.css" />
+    <link rel="stylesheet" href="~/assets/components/loadawesome/loaders.css" />
+    <link rel="stylesheet" href="~/assets/css/style.min.css" />
+    <link rel="stylesheet" href="~/assets/css/msg.css" />
+</head>
+
+<body class="page admin">
+
+    <nav class="sidebar">
+        <div class="logo">
+            <img src="~/assets/img/svg/logo-icon.png" />
+        </div>
+
+        @RenderSection("NAV", required: true)
+
+    </nav>
+
+    <main class="main">
+        <header class="header animated fadeInDown" fast">
+            <div class="left">
+                <a href="#" class="icon open-trigger">
+                    <i class="icon auto">
+                        <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.5 0H15.5V1.66667H0.5V0ZM0.5 4.16667H15.5V5.83333H0.5V4.16667ZM0.5 8.33333H15.5V10H0.5V8.33333Z"
+                                  fill="#101010" />
+                        </svg>
+                    </i>
+                </a>
+                <h2>@ViewData["Header"]</h2>
+            </div>
+            <div class="right">
+
+
+                <div class="action dropdown">
+                    <a class="btn dropdown-toggle" id="profile-menu" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        @* The code below gets the image of the user below inform of passports including the Email*@
+                        @if (User.Claims.FirstOrDefault(p => p.Type == "passport") != null)
+                        {
+
+                            var passportstring = User.Claims.FirstOrDefault(p => p.Type == "passport").Value;
+
+                            <img src="@passportstring" height="30" />
+                            <input type="hidden" class="passporturl" value="@passportstring" />
+
+                        }
+                        else
+                        {
+                            <img src="~/assets/img/png/avatar2.png" height="30" />
+                        }
+
+                        <p>
+                            <strong>@User.Claims.FirstOrDefault(p => p.Type == "fullname").Value</strong>
+                            @if (User.Claims.FirstOrDefault(p => p.Type == "email") != null)
+                            {
+                                <span>@User.Claims.FirstOrDefault(p => p.Type == "email").Value</span>
+                            }
+
+                        </p>
+                        <i class="icon">
+                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.334 1.99992C10.334 1.07942 11.0801 0.333252 12.0007 0.333252C12.9212 0.333252 13.6673 1.07942 13.6673 1.99992C13.6673 2.92042 12.9212 3.66658 12.0007 3.66658C11.0801 3.66658 10.334 2.92042 10.334 1.99992ZM5.33398 1.99992C5.33398 1.07942 6.08015 0.333252 7.00065 0.333252C7.92115 0.333252 8.66732 1.07942 8.66732 1.99992C8.66732 2.92042 7.92115 3.66658 7.00065 3.66658C6.08015 3.66658 5.33398 2.92042 5.33398 1.99992ZM0.333984 1.99992C0.333984 1.07942 1.08018 0.333252 2.00065 0.333252C2.92113 0.333252 3.66732 1.07942 3.66732 1.99992C3.66732 2.92042 2.92113 3.66658 2.00065 3.66658C1.08018 3.66658 0.333984 2.92042 0.333984 1.99992Z"
+                                      fill="#101010" />
+                            </svg>
+
+                        </i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profile-menu">
+                        <a class="dropdown-item" href="./settings.html">
+                            <i class="icon">
+                                <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.083 8.12492L14.2497 8.95825L12.5413 7.24992L13.3747 6.41659C13.5529 6.24192 13.8381 6.24192 14.0163 6.41659L15.083 7.48325C15.2577 7.6615 15.2577 7.94667 15.083 8.12492ZM6.99967 12.7833L12.0497 7.73325L13.758 9.44159L8.71634 14.4999H6.99967V12.7833ZM6.99967 8.66658C3.31634 8.66658 0.333008 10.1583 0.333008 11.9999V13.6666H5.33301V12.0916L8.66634 8.75825C8.11367 8.68833 7.55667 8.65775 6.99967 8.66658ZM6.99967 0.333252C5.15872 0.333252 3.66634 1.82567 3.66634 3.66659C3.66634 5.5075 5.15872 6.99992 6.99967 6.99992C8.84059 6.99992 10.333 5.5075 10.333 3.66659C10.333 1.82567 8.84059 0.333252 6.99967 0.333252Z"
+                                          fill="#101010" />
+                                </svg>
+                            </i>
+                            <span>Edit Profile</span>
+                        </a>
+                        <a class="dropdown-item logout" asp-controller="Auth" asp-action="Logout">
+                            <i class="icon">
+                                <svg width="14" height="15" viewBox="0 0 14 15" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.7997 2.53332L9.59134 3.74166C11.033 4.61666 11.9997 6.19166 11.9997 7.99999C11.9997 10.7583 9.75801 13 6.99967 13C4.24134 13 1.99967 10.7583 1.99967 7.99999C1.99967 6.19166 2.96634 4.61666 4.39967 3.73333L3.19967 2.53332C1.46634 3.73333 0.333008 5.73333 0.333008 7.99999C0.333008 11.6833 3.31634 14.6667 6.99967 14.6667C10.683 14.6667 13.6663 11.6833 13.6663 7.99999C13.6663 5.73333 12.533 3.73333 10.7997 2.53332ZM7.83301 0.5H6.16634V8.83333H7.83301"
+                                          fill="#FF7070" />
+                                </svg>
+                            </i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        @RenderBody()
+    </main>
+
+    
+    <script src="~/assets/components/jquery/jquery.min.js"></script>
+    <script src="~/assets/components/popper/popper.min.js"></script>
+    <script src="~/assets/components/bootstrap/bootstrap.min.js"></script>
+    <script src="~/assets/js/scripts.min.js"></script>
+    <script src="https://js.paystack.co/v2/paystack.js"></script>
+
+
+</body>
+</html>

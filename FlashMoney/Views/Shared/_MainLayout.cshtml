@@ -1,0 +1,610 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>@ViewData["Header"]</title>
+
+        <link rel="shortcut icon" href="~/assets/img/png/fav-icon.png" type="image/x-icon" />
+
+        <link href="https://fonts.googleapis.com/css?family=Work+Sans:400,500,600,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Titillium+Web:400,900,700,300,300italic,400italic,600,600italic,700italic" rel="stylesheet" type="text/css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="~/assets/components/bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/assets/components/animate/animate.css" />
+        <link rel="stylesheet" href="~/assets/components/loadawesome/loaders.css" />
+        <link rel="stylesheet" href="~/assets/components/slick/slick.css">
+        <link rel="stylesheet" href="~/assets/css/style.min.css" />
+        <link rel="stylesheet" href="~/assets/css/msg.css" />
+        @*<link rel="stylesheet" href="~/assets/components/owl-carousel/assets/owl.carousel.min.css" />
+        <link rel="stylesheet" href="~/assets/components/owl-carousel/assets/owl.theme.default.min.css" />*@
+        <link href="~/css/flash.css" rel="stylesheet" />
+        <link rel="stylesheet" href="~/assets/css/we.css" />
+        <script src="https://js.paystack.co/v2/paystack.js"></script>
+        <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+</head>
+
+<body class="page admin">
+
+    <nav class="sidebar">
+        <div class="logo">
+            <img src="~/assets/img/svg/logo-icon.png" />
+        </div>
+
+        @RenderSection("NAV", required: true)
+
+    </nav>
+
+    <main class="main">
+        <header class="header animated fadeInDown" fast">
+            <div class="left">
+                <a href="#" class="icon open-trigger">
+                    <i class="icon auto">
+                        <svg width="16" height="10" viewBox="0 0 16 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0.5 0H15.5V1.66667H0.5V0ZM0.5 4.16667H15.5V5.83333H0.5V4.16667ZM0.5 8.33333H15.5V10H0.5V8.33333Z"
+                                  fill="#101010" />
+                        </svg>
+                    </i>
+                </a>
+                <h2>@ViewData["Header"]</h2>
+            </div>
+            <div class="right">
+                <div class="action dropdown">
+                    <a class="btn dropdown-toggle" id="profile-menu" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">
+                        @* The code below gets the image of the user below inform of passports including the Email*@
+                        @if (User.Claims.FirstOrDefault(p => p.Type == "passport") != null)
+                        {
+
+                            var passportstring = User.Claims.FirstOrDefault(p => p.Type == "passport").Value;
+
+                            <img src="@passportstring" height="30" />
+                            <input type="hidden" class="passporturl" value="@passportstring" />
+
+                        }
+                        else
+                        {
+                            <img src="~/assets/img/png/avatar2.png" height="30" />
+                        }
+
+                        <p>
+                            <strong>@User.Claims.FirstOrDefault(p => p.Type == "fullname").Value</strong>
+                            @if (User.Claims.FirstOrDefault(p => p.Type == "email") != null)
+                            {
+                                <span>@User.Claims.FirstOrDefault(p => p.Type == "email").Value</span>
+                            }
+
+                        </p>
+                        <i class="icon">
+                            <svg width="14" height="4" viewBox="0 0 14 4" fill="none"
+                                 xmlns="http://www.w3.org/2000/svg">
+                                <path d="M10.334 1.99992C10.334 1.07942 11.0801 0.333252 12.0007 0.333252C12.9212 0.333252 13.6673 1.07942 13.6673 1.99992C13.6673 2.92042 12.9212 3.66658 12.0007 3.66658C11.0801 3.66658 10.334 2.92042 10.334 1.99992ZM5.33398 1.99992C5.33398 1.07942 6.08015 0.333252 7.00065 0.333252C7.92115 0.333252 8.66732 1.07942 8.66732 1.99992C8.66732 2.92042 7.92115 3.66658 7.00065 3.66658C6.08015 3.66658 5.33398 2.92042 5.33398 1.99992ZM0.333984 1.99992C0.333984 1.07942 1.08018 0.333252 2.00065 0.333252C2.92113 0.333252 3.66732 1.07942 3.66732 1.99992C3.66732 2.92042 2.92113 3.66658 2.00065 3.66658C1.08018 3.66658 0.333984 2.92042 0.333984 1.99992Z"
+                                      fill="#101010" />
+                            </svg>
+
+                        </i>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="profile-menu">
+                        <a class="dropdown-item" href="./settings.html">
+                            <i class="icon">
+                                <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15.083 8.12492L14.2497 8.95825L12.5413 7.24992L13.3747 6.41659C13.5529 6.24192 13.8381 6.24192 14.0163 6.41659L15.083 7.48325C15.2577 7.6615 15.2577 7.94667 15.083 8.12492ZM6.99967 12.7833L12.0497 7.73325L13.758 9.44159L8.71634 14.4999H6.99967V12.7833ZM6.99967 8.66658C3.31634 8.66658 0.333008 10.1583 0.333008 11.9999V13.6666H5.33301V12.0916L8.66634 8.75825C8.11367 8.68833 7.55667 8.65775 6.99967 8.66658ZM6.99967 0.333252C5.15872 0.333252 3.66634 1.82567 3.66634 3.66659C3.66634 5.5075 5.15872 6.99992 6.99967 6.99992C8.84059 6.99992 10.333 5.5075 10.333 3.66659C10.333 1.82567 8.84059 0.333252 6.99967 0.333252Z"
+                                          fill="#101010" />
+                                </svg>
+                            </i>
+                            <span>Edit Profile</span>
+                        </a>
+                        <a class="dropdown-item logout" asp-controller="Auth" asp-action="Logout">
+                            <i class="icon">
+                                <svg width="14" height="15" viewBox="0 0 14 15" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10.7997 2.53332L9.59134 3.74166C11.033 4.61666 11.9997 6.19166 11.9997 7.99999C11.9997 10.7583 9.75801 13 6.99967 13C4.24134 13 1.99967 10.7583 1.99967 7.99999C1.99967 6.19166 2.96634 4.61666 4.39967 3.73333L3.19967 2.53332C1.46634 3.73333 0.333008 5.73333 0.333008 7.99999C0.333008 11.6833 3.31634 14.6667 6.99967 14.6667C10.683 14.6667 13.6663 11.6833 13.6663 7.99999C13.6663 5.73333 12.533 3.73333 10.7997 2.53332ZM7.83301 0.5H6.16634V8.83333H7.83301"
+                                          fill="#FF7070" />
+                                </svg>
+                            </i>
+                            <span>Logout</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        @RenderBody()
+    </main>
+
+
+    <!-- Modals -->
+    <section class="modals">
+        @RenderSection("Modals", required: false);
+        <!-- Modal: Catch all Ajax Errors -->
+        <div class="modal fade" id="modal-catch-errors" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content m-content-wrap">
+                    <div class="card form-card">
+                        <!-- Loading  -->
+                        <div class="form-section loading">
+                            <div class="la-ball-pulse">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        </div>
+
+                        <!-- Error -->
+                        <div class="form-section alert sub error active">
+                            <div class="head">
+                                <h4>Error</h4>
+                            </div>
+                            <img src="~/assets/img/png/alert-error.png" class="error-img" />
+
+                            <h3>Error Occured!</h3><br /><br />
+                            <p class="errorWrap">Reason: <span class="errorText"></span></p>
+                            <a class="btn btn-primary" asp-action="Index" asp-controller="Home">Continue</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="stack d-none">
+        @{
+            var email = User.Claims.FirstOrDefault(p => p.Type == "phone").Value + "@fcmbeasypay.com";
+            if (User.Claims.FirstOrDefault(p => p.Type == "email") != null)
+            {
+                var tempEmail = User.Claims.FirstOrDefault(p => p.Type == "email").Value;
+                if (!string.IsNullOrEmpty(email))
+                {
+                    email = tempEmail;
+                }
+
+            }
+            string reference = Guid.NewGuid().ToString();
+        }
+        <span class="email">@email</span>
+        <span class="reference">@reference</span>
+    </section>
+
+    @RenderSection("Scripts", required: false);
+    <script src="~/assets/components/jquery/jquery.min.js"></script>
+    <script src="~/assets/components/popper/popper.min.js"></script>
+    <script src="~/assets/components/bootstrap/bootstrap.min.js"></script>
+    <script src="~/assets/components/slick/slick.min.js"></script>
+    <script src="~/assets/components/cleave/cleave.min.js"></script>
+    @*<script src="~/assets/components/owl-carousel/owl.carousel.min.js"></script>*@
+    <script src="~/assets/js/mexyjs.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="~/lib/signalr/dist/browser/signalr.js"></script>
+    <script src="https://kit.fontawesome.com/c995419757.js" crossorigin="anonymous"></script>
+    <script src="~/assets/js/scripts.min.js"></script>
+    @*<script>
+                    var timeInSecondsAfterSessionOut = 300; // change this to change session time out (in seconds).
+                    var secondTick = 0;
+                jQuery(document).ready(function () {
+                        //Listen to click/key events to reset the session timeout
+                        $("body").on('click keypress', function () {
+                            ResetThisSession();
+                        });
+                    var baseUrl = "@Url.Action("Paystackresponse", "Wallet", new { reference = "" }, "https")" + "?reference=";
+                    var starturl = "@Url.Action("AddCardInitiated", "Wallet", new {}, "https")" + "?reference=";
+                    var stopFrameLoading = false;
+                    //"https://localhost:44380/Wallet/Paystackresponse?reference=";
+                    //"https://localhost:44380/Wallet/AddCardInitiated?reference=";
+                    $('.modal-content').on('keyup', '#cc-form .credit-card', function (e) {
+
+                        //console.log("in credit:"+$(this).val());
+                        var number = $(this).val().replace(/\s+/g, '');
+                        var type = validateCreditCardNumber(number);
+                        //console.log("in credit:"+type);
+                        if (type == 'visa' || type == 'master') {
+                            //console.log("in credit");
+                            $(this).siblings('.credit-card-type').attr('src', '/assets/img/png/card-' + type + '.png');
+                            $('.form-section .card-type-processing').attr('src', '/assets/img/png/card-' + type + '.png');
+                        } else {
+                            $(this).siblings('.credit-card-type').attr('src', '/assets/img/png/nocard.png');
+                            $('.form-section .card-type-processing').attr('src', '/assets/img/png/nocard.png');
+                        }
+                    });
+
+                    $('.modal-content').on('click', '#cc-form .form-link-next', function (e) {
+
+                        $('.cc-form-errors').text("");
+                        $('.cc-form-errors').addClass('hidden');
+                        var nform = $('#cc-form');
+                        var expiry = nform.find('input[name=expiry]').val();
+                        var cvv = nform.find('input[name=cvv]').val();
+                        var number = nform.find('input[name=number]').val().replace(/\s+/g, '');
+                        if (number.length < 16 || number.length > 19) {
+                            $('.cc-form-errors').html("Card Number is invalid.<br/>");
+                            $('.cc-form-errors').removeClass('hidden');
+                            return false;
+                        }
+                        if (expiry.length < 5 || expiry.length > 7 || !expiry.includes('/')) {
+                            console.log('we dey expiry length');
+                            $('.cc-form-errors').html("Expiry date is invalid, MM/YY or MM/YYYY format expected.<br/>");
+                            $('.cc-form-errors').removeClass('hidden');
+                            return false;
+                        }
+                        var date = expiry.split('/');
+                        var month = date[0];
+                        var year = date[1];
+
+                        var currentYearAbbrv = new Date().getFullYear().toString().substr(-2);
+                        var currentYear = new Date().getFullYear();
+                        var currentMonth = new Date().getMonth() + 1;
+                        if (month.length != 2 || (parseInt(month) < 1 || parseInt(month) > 12) || (year.length != 2 && year.length != 4) && (parseInt(year) >= parseInt(currentYearAbbrv) || parseInt(year) >= currentYear)) {
+                            //console.log('we dey month length');
+                            $('.cc-form-errors').text("Expiry date is invalid, MM/YY or MM/YYYY format expected");
+                            $('.cc-form-errors').removeClass('hidden');
+                            return false;
+                        }
+                        //Validation or expiry
+                        if (((parseInt(month) < currentMonth) && ((year.length == 2 && parseInt(year) <= parseInt(currentYearAbbrv)) || (year.length == 4 && parseInt(year) >= parseInt(currentYear)))) || (year.length == 2 && parseInt(year) < parseInt(currentYearAbbrv)) || (year.length == 4 && parseInt(year) < parseInt(currentYear))) {
+                            //console.log('we dey month length');
+                            debugger
+                            $('.cc-form-errors').text("Expiry date is invalid, date is in the past");
+                            $('.cc-form-errors').removeClass('hidden');
+                            return false;
+                        }
+                        //debugger
+                        if (cvv.length != 3) {
+                            $('.cc-form-errors').html("CVV is invalid.<br/>");
+                            $('.cc-form-errors').removeClass('hidden');
+                            return false;
+                        }
+                        $('.form-section .expiry-dd').text(expiry);
+                        $('.form-section .last-four').text(number.substr(-4));
+
+
+                        $(".form-section").removeClass('active');
+                        $(".form-section.card-pin").addClass('active');
+                    });
+                    $('.modals .modal-content').on('click', '#cc-form .form-link-card', async function (e) {
+                        //debugger
+                        //console.log('we dey here');
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                        //console.log('we dey here');
+
+                        try {
+                            var nform = $('#cc-form');
+                            $('.cc-form-errors').text("");
+                            $('.cc-form-errors').addClass('hidden');
+                            if (!nform.find('input[name=pin1]').val() || !nform.find('input[name=pin2]').val() || !nform.find('input[name=pin3]').val() || !nform.find('input[name=pin4]').val()) {
+                                $('.cc-form-errors').html("PIN must be 4 digits.<br/>");
+                                $('.cc-form-errors').removeClass('hidden');
+                                return false;
+                            }
+                            showLoading(true);
+
+                            var pin = nform.find('input[name=pin1]').val() + nform.find('input[name=pin2]').val() + nform.find('input[name=pin3]').val() + nform.find('input[name=pin4]').val();
+                            var email = $('section.stack span.email').text();
+                            var reference = $('section.stack span.reference').text(); //Date.now() + Math.floor(Math.random() * 263);// this reference should be generated on page load, you can use uuid, but make sure its unique
+                            //debugger
+                            var url1 = starturl + reference;
+                            await processResponseAsync(url1);
+                            //debugger
+                            var t_amount_string = $('.total_amount .outter_total_charge .total_charge').text();
+                            var t_amount = parseInt(t_amount_string) * 100;
+                            if (!isNaN(t_amount) && t_amount >= 120) {
+                                var transactionData = {
+                                    email: email,
+                                    amount: t_amount,
+                                    // key: "pk_test_29e3eb79334d9b0b5150bcb26d28970542d51424",
+                                    key: "pk_live_5e4c11e3f3414dd8b4939fe18e7f01c8a308415b",
+                                    ref: reference
+                                };
+
+                                var transaction = await Paystack.Transaction.request(transactionData);
+                                //debugger
+                                //console.log(transaction);
+                                var expiry = nform.find('input[name=expiry]').val();
+                                var date = expiry.split('/');
+                                var month = date[0];
+                                var year = date[1];
+                                console.log('expiry: ' + expiry);
+
+
+                                var card = {
+                                    number: nform.find('input[name=number]').val().replace(/\s+/g, ''),
+                                    cvv: nform.find('input[name=cvv]').val(),
+                                    month: month,
+                                    year: year,
+                                    pin: pin
+                                };
+
+                                var validation = Paystack.Card.validate(card);
+
+                                // validate card
+                                if (validation.isValid) {
+                                    await transaction.setCard(card);
+                                    var chargeResponse = await transaction.chargeCard();
+                                    //console.log(chargeResponse);
+                                    // Handle the charge responses
+
+                                    if (chargeResponse.status === "success") {
+                                        emptySensitiveFields();
+                                        showLoading(false);
+                                        showSuccess(true);
+                                        var url = baseUrl + reference;
+                                        processResponse(url);
+                                    }
+                                    // Another charge response example
+                                    else if (chargeResponse.status === "auth") {
+                                        emptySensitiveFields();
+                                        if (chargeResponse.data.auth === "pin") {
+                                            //showLoading(true);
+                                            const authenticationResponse = await transaction.card.authenticate(pin);
+                                            showLoading(false);
+                                            var url = baseUrl + reference;
+                                            if (authenticationResponse.status === "success") {
+
+                                                showSuccess(true);
+                                            } else {
+                                                showSuccess(false, authenticationResponse.message);
+                                            }
+                                            processResponse(url);
+                                        }
+                                        else if (chargeResponse.data.auth === "3DS") {
+                                            /*await transaction.listenFor3DSCharge().then(function(response){
+                                                console.log('3DS trans response');
+                                              console.log(response);
+                                            }, function(error){
+                                                console.log('3DS trans error');
+                                              console.log(error);
+                                            });*/
+                                            //console.log(chargeResponse.data);
+                                            //window.location.href = chargeResponse.message;
+                                            $('#iframe-3ds').attr('src', chargeResponse.message);
+
+
+                                        }
+                                        else if (chargeResponse.data.auth === "otp") {
+                                            //const token = 803284;
+                                            var token = await getCode();
+                                            console.log(token);
+                                            //showLoading(true);
+                                            const authenticationResponse = await transaction.authenticateCard(token);
+                                            showLoading(false);
+                                            var url = baseUrl + reference;
+                                            if (authenticationResponse.status === "success") {
+                                                showSuccess(true);
+                                            } else {
+                                                showSuccess(false, authenticationResponse.message);
+                                            }
+                                            processResponse(url);
+                                        }
+
+                                    }
+                                    else if (chargeResponse.status === false) {
+                                        emptySensitiveFields();
+                                        //console.log("i dey here:" + chargeResponse.message);
+                                        showLoading(false);
+                                        showSuccess(false, chargeResponse.message);
+                                        var url = baseUrl + reference + "&message=" + chargeResponse.message;
+                                        processResponse(url);
+                                    } else {
+                                        emptySensitiveFields();
+                                        showLoading(false);
+                                        showSuccess(false, chargeResponse.message);
+                                        var url = baseUrl + reference + "&message=" + chargeResponse.message;
+                                        processResponse(url);
+                                    }
+                                } else {
+                                    emptySensitiveFields();
+                                    //console.log("transaction:" + err.message);
+                                    var message = "Invalid Card / Unknown Error, kindly try again.";
+                                    showLoading(false);
+                                    showSuccess(false, message);
+                                    var url = baseUrl + reference + "&status=fail&message=" + message;
+                                    processResponse(url);
+                                }
+                            } else {
+                                var message = "Amount Invalid, kindly try again.";
+                                showLoading(false);
+                                showSuccess(false, message);
+                                var url = baseUrl + reference + "&status=fail&message=" + message;
+                                processResponse(url);
+                            }
+                        } catch (err) {
+                            emptySensitiveFields();
+                            console.log("transaction:" + err.message);
+                            showLoading(false);
+                            showSuccess(false, err.message);
+                            var url = baseUrl + reference + "&status=fail&message=" + err.message;
+                            processResponse(url);
+                        }
+                        emptySensitiveFields();
+                    });
+                    $('#iframe-3ds').on('load', function () {
+                        if (!stopFrameLoading) {
+                            showLoading(false);
+                            $(".form-section").removeClass('active');
+                            $(".form-section.card-3ds").addClass('active');
+                        }
+                    });
+                    window.addEventListener("message", receiveMessage, false);
+
+                    function receiveMessage(event) {
+                        if (event.origin !== "https://standard.paystack.co")
+                            return;
+                        var payload = event.data;
+                        var json = payload.replace("PaystackAuth ", "");
+                        var ndata = JSON.parse(json);
+                        if (ndata.trxref) {
+                            stopFrameLoading = true;
+                            var reference = ndata.trxref;
+                            if (ndata.status === "success") {
+                                showSuccess(true);
+                            } else {
+                                showSuccess(false, ndata.message);
+                            }
+                            var url = baseUrl + reference;
+                            processResponse(url);
+                        }
+                    }
+                    function emptySensitiveFields() {
+                        var nform = $('#cc-form');
+                        var tform = $('#get-otp');
+                        nform.find('input[type="text"],input[type="password"]').val('');
+                        tform.find('input[type="text"],input[type="password"]').val('');
+                    }
+                    function showLoading(status) {
+                        $('.modal-content .form-card .form-section').removeClass("active");
+                        if (status) {
+                            $('.modal-content .form-card .form-section.loading').addClass("active");
+                        }
+                    }
+                    function showSuccess(status, message) {
+                        var type = 'success';
+                        if (!status) {
+                            type = 'error';
+                        }
+                        $('.modal-content .form-card .form-section').removeClass("active");
+
+                        $('.modal-content .form-card .form-section.alert.sub.' + type).addClass("active");
+                        if (message != null) {
+                            $('.modal-content .form-card .form-section.alert.sub.' + type + ' .fail-message').text(message);
+                        }
+
+                    }
+                    function processResponse(url) {
+                        //debugger
+                        $.get(url, function (data) {
+                            //You can put any code that needs to be executed after confirmation from server here
+                            /*if(data.status == "success"){
+                                showSuccess(true);
+                            }else{
+                                showSuccess(false, data.message);
+                            }*/
+                        });
+                    }
+                    async function processResponseAsync(url) {
+                        return Promise.resolve($.get(url));
+                    }
+                    async function getCode() {
+                        $('.form-section').removeClass('active');
+                        $('.form-section.card-otp').addClass('active');
+                        return new Promise(function (resolve, reject) {
+                            $(document).on('click', '#save-code', function (e) {
+                                var nform = $('#get-otp');
+                                if (nform.find('input[name=otp1]').val() && nform.find('input[name=otp2]').val() && nform.find('input[name=otp3]').val() && nform.find('input[name=otp4]').val() && nform.find('input[name=otp5]').val() && nform.find('input[name=otp6]').val()) {
+                                    var code = nform.find('input[name=otp1]').val() + nform.find('input[name=otp2]').val() + nform.find('input[name=otp3]').val() + nform.find('input[name=otp4]').val() + nform.find('input[name=otp5]').val() + nform.find('input[name=otp6]').val();
+                                    resolve(code);
+                                }
+                            });
+                        });
+                    }
+
+                    /*function doInputDialog() {
+                        var def = $.Deferred();
+                        bootbox.prompt({
+                            title: "Enter your Token",
+                            inputType: 'password',
+                            callback: def.resolve
+                        });
+
+                        return def.promise().then(function (result) {
+                            return result;
+                        });
+                    }*/
+
+
+        (function () {
+                var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+
+                connection.start().then(function () {
+                    console.log("connected");
+
+                    connection.invoke('getConnectionId')
+                        .then(function (connectionId) {
+                            sessionStorage.setItem('conectionId', connectionId);
+                            // Send the connectionId to controller
+                        }).catch(err => console.error(err.toString()));;
+
+
+                });
+
+                $("#sendmessage").click(function () {
+                    var connectionId = sessionStorage.getItem('conectionId');
+                    connection.invoke("SendMessage", connectionId);
+                });
+
+            connection.on("Notify", function (message) {
+
+                console.log(message);
+                if (message == "Logout") {
+                    $.get("/Auth/Logout", function (data) {
+                        location.reload();
+                    });
+                } else if (message == "NewUser") {
+                    location.reload();
+                }
+            });
+
+
+
+            })();
+
+                    function validateCreditCardNumber(ccNum) {
+
+                        var visaPattern = /^(?:4[0-9]{12}(?:[0-9]{3})?)$/;
+                        var mastPattern = /^(?:5[1-5][0-9]{14})$/;
+                        var amexPattern = /^(?:3[47][0-9]{13})$/;
+                        var discPattern = /^(?:6(?:011|5[0-9][0-9])[0-9]{12})$/;
+
+                        //var ccNum  = document.getElementById("cardNum").value;
+
+                        var isVisa = visaPattern.test(ccNum) === true;
+                        var isMast = mastPattern.test(ccNum) === true;
+                        var isAmex = amexPattern.test(ccNum) === true;
+                        var isDisc = discPattern.test(ccNum) === true;
+
+                        if (isVisa) {
+                            return 'visa';
+                        }
+                        else if (isMast) {
+                            return 'master';
+                        }
+                        else if (isAmex) {
+                            return 'amex';
+                        }
+                        else if (isDisc) {
+                            return 'disc';
+                        }
+                        else {
+                            return 'nocard';
+                        }
+                    }
+                });
+                function ResetThisSession() {
+                    secondTick = 0;
+                }
+
+                function StartThisSessionTimer() {
+                    secondTick++;
+                    /*var timeLeft = ((timeInSecondsAfterSessionOut - secondTick) / 60).toFixed(0); // in minutes
+                    if (secondTick <= 30) {
+                        timeLeft = timeInSecondsAfterSessionOut - secondTick; // override, we have 30 secs only
+                    }*/
+
+                    //$("#spanTimeLeft").html(timeLeft);
+
+                    if (secondTick > timeInSecondsAfterSessionOut) {
+                        clearTimeout(tick);
+                        //window.location = "/Auth/Logout";
+                        location.reload(true);
+                        return;
+                    }
+                    tick = setTimeout("StartThisSessionTimer()", 1000);
+                }
+
+                // Start the session timer
+                StartThisSessionTimer();
+            </script>*@
+</body>
+
+</html>

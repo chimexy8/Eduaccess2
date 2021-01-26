@@ -1,0 +1,361 @@
+﻿@model FlashMoney.Models.OverviewModel
+
+@{
+    ViewData["Title"] = "AddScholarship Page";
+    ViewData["Header"] = "Add Scholarship ";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@section NAV{
+    <div class="content">
+        <ul>
+            <li class="active">
+                <a asp-controller="Sponsors" asp-action="index">
+                    <i class="icon">
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.3">
+                                <path d="M9 13.2002H15V19.2002H18V10.1767L12 5.69627L6 10.1767V19.2002H9V13.2002ZM3.98438 21.2002V9.20019L12 3.2002L20.0156 9.20019V21.2002H3.98438Z"
+                                      fill="#2F1343" />
+                            </g>
+                        </svg>
+                    </i>
+                    <span>Overview</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Sponsors" asp-action="Scholarship">
+                    <i class="icon">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-journal-album" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1H2a2 2 0 0 1 2-2z" />
+                            <path d="M2 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm3-6.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-5z" />
+                            <path fill-rule="evenodd" d="M6 11.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </i>
+                    <span>Scholarship</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Sponsors" asp-action="Applicant">
+                    <i class="icon">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z" />
+                            <path d="M13.784 14c-.497-1.27-1.988-3-5.784-3s-5.287 1.73-5.784 3h11.568z" />
+                            <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                        </svg>
+                    </i>
+                    <span>Applicant</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Sponsors" asp-action="Leaderboard">
+                    <i class="icon">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-award" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M9.669.864L8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193l-1.51-.229L8 1.126l-1.355.702-1.51.229-.684 1.365-1.086 1.072L3.614 6l-.25 1.506 1.087 1.072.684 1.365 1.51.229L8 10.874l1.356-.702 1.509-.229.684-1.365 1.086-1.072L12.387 6l.248-1.506-1.086-1.072-.684-1.365z" />
+                            <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+                        </svg>
+                    </i>
+                    <span>Leaderboard</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Sponsors" asp-action="Settings">
+                    <i class="icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.3">
+                                <path d="M12.0003 8.00048C14.2094 8.00048 16.0003 9.79134 16.0003 12.0005C16.0003 14.2096 14.2094 16.0005 12.0003 16.0005C9.79115 16.0005 8.00029 14.2096 8.00029 12.0005C8.00029 9.79134 9.79115 8.00048 12.0003 8.00048ZM12.0003 10.0005C10.8957 10.0005 10.0003 10.8959 10.0003 12.0005C10.0003 13.1051 10.8957 14.0005 12.0003 14.0005C13.1049 14.0005 14.0003 13.1051 14.0003 12.0005C14.0003 10.8959 13.1049 10.0005 12.0003 10.0005ZM9.99967 21.9985C9.74967 21.9985 9.54369 21.8156 9.5057 21.5775L9.1307 18.9276C8.52169 18.6755 7.95667 18.3405 7.44068 17.9445L4.95166 18.9475C4.72569 19.0345 4.46367 18.9465 4.33969 18.7306L2.33969 15.2665C2.21469 15.0505 2.26966 14.7805 2.45769 14.6276L4.56969 12.9745L4.49968 11.9985L4.56969 11.0226L2.45769 9.36848C2.26966 9.21655 2.21469 8.94653 2.33969 8.73054L4.33969 5.26652C4.46367 5.05053 4.72569 4.96256 4.95166 5.04955L7.43968 6.05257C7.95567 5.65657 8.52067 5.32153 9.1307 5.06852L9.5057 2.4196C9.54369 2.18148 9.74967 1.99854 9.99967 1.99854L14.0009 2.00049C14.2509 2.00049 14.4569 2.18344 14.4949 2.42155L14.8699 5.07047C15.4799 5.32348 16.0449 5.65852 16.5609 6.05452L19.0489 5.05151C19.2749 4.96451 19.5369 5.05248 19.6609 5.26846L21.6609 8.73249C21.7859 8.94848 21.7309 9.2185 21.5429 9.37043L19.4309 11.0245L19.5009 12.0005L19.4309 12.9765L21.5429 14.6296C21.7309 14.7825 21.7859 15.0525 21.6609 15.2685L19.6609 18.7325C19.5369 18.9485 19.2749 19.0365 19.0489 18.9495L16.5599 17.9465C16.0439 18.3425 15.4789 18.6775 14.8699 18.9295L14.4949 21.5794C14.4569 21.8176 14.2509 22.0005 14.0009 22.0005L9.99967 21.9985ZM11.2503 4.0005L10.8843 6.61377C9.68292 6.86137 8.62463 7.50078 7.84895 8.39254L5.43814 7.35242L4.68814 8.65146L6.80101 10.2029C6.39926 11.3677 6.40005 12.6406 6.80337 13.8049L4.68493 15.3609L5.43493 16.6599L7.85559 15.6161C8.62862 16.5015 9.68077 17.137 10.8748 17.3853L11.2439 20.0174L12.7567 20.0194L13.1258 17.3872C14.3198 17.1389 15.372 16.5034 16.145 15.618L18.5657 16.6619L19.3157 15.3628L17.1972 13.8069C17.6005 12.6425 17.6013 11.3697 17.1996 10.2049L19.3124 8.65341L18.5624 7.35437L16.1516 8.39448C15.3759 7.50273 14.3177 6.86332 13.1163 6.61572L12.7503 4.00245L11.2503 4.0005Z"
+                                      fill="#2F1343" />
+                            </g>
+                        </svg>
+
+                    </i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="./Scholarship.html">Scholarship</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Add Scholarship</li>
+    </ol>
+</nav>
+<section class="content settings">
+    <div class="contianer">
+        @if (!string.IsNullOrWhiteSpace((string)TempData["Success"]))
+        {
+
+            <div class="Msg alert alert-success text-center">
+                @TempData["Success"]
+            </div>
+        }
+        @if (!string.IsNullOrWhiteSpace((string)TempData["Error"]))
+        {
+            //var kk = 0;
+            <div class="Msg alert alert-danger text-center">
+                @TempData["Error"]
+            </div>
+        }
+        <div class="card animated fadeInUp fast delay-1">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="setting-content p-0 m-4">
+                        <form asp-action="CreateScholarship" method="post" enctype="multipart/form-data">
+                            <div class="input">
+                                <input type="text" name="Title" placeholder="Scholarship Title" />
+                                <label>Title</label>
+                                <span>To help us improve our services to you</span>
+                            </div>
+                            <div class="demo m-0">
+                                <textarea type="text" name="Detail" data-toggle="tooltip" data-placement="bottom"
+                                          title="Design your Scholarship description with our addition text element"></textarea>
+                                <script>
+                                    CKEDITOR.replace('Detail');
+                                </script>
+                            </div>
+                            <div class="text-divider margintop30">
+                                <span>Scholarship Requirements</span>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6 mb-3">
+                                    <div class="row" style="justify-content: space-between; flex-wrap: nowrap;">
+                                        <div class="col-md-8">
+                                            <strong>Require Online Test</strong>
+                                            <p>Select Yes if Online Test will be required to access Scholarship</p>
+                                        </div>
+                                        <div class="col-md-4 margintop10" style="text-align: right;">
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label id="examrequired" class="btn btn-secondary active" style="padding: 5px">
+                                                    <input type="radio" name="RequireTest" value="True" checked> Yes
+                                                </label>
+                                                <label id="noexamrequired" class="btn btn-secondary" style="padding: 5px">
+                                                    <input type="radio" name="RequireTest" value="False"> No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-6" id="examdependent">
+                                    <div class="row" style="justify-content: space-between; flex-wrap: nowrap;">
+                                        <div class="col-md-8">
+                                            <strong>Need Help with Questions ?</strong>
+                                            <p>Select yes if you require us to provide the exam/test questions</p>
+                                        </div>
+                                        <div class="col-md-4 margintop10" style="text-align: right;">
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-secondary active" id="provide" style="padding: 5px">
+                                                    <input type="radio" name="UserProvidesQuestions" value="False" checked> Yes
+                                                </label>
+                                                <label class="btn btn-secondary" id="dntprovide" style="padding: 5px">
+                                                    <input type="radio" name="UserProvidesQuestions" value="True" /> No
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-3" id="examdependent">
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="input with-icon">
+                                        <input name="ExamStartDateTime" id="examdate" type="datetime-local" placeholder="Exam Date and Time" />
+                                        <label>Exam Date</label>
+                                        <i class="icon sm">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g opacity="0.3">
+                                                    <path d="M5.83333 10.0001H7.5V11.6667H5.83333V10.0001ZM17.5 5.00007V16.6667C17.5 17.5834 16.75 18.3334 15.8333 18.3334H4.16667C3.24167 18.3334 2.5 17.5834 2.5 16.6667L2.50833 5.00007C2.50833 4.08341 3.24167 3.33341 4.16667 3.33341H5V1.66675H6.66667V3.33341H13.3333V1.66675H15V3.33341H15.8333C16.75 3.33341 17.5 4.08341 17.5 5.00007ZM4.16667 6.66674H15.8333V5.00007H4.16667V6.66674ZM15.8333 16.6667V8.33341H4.16667V16.6667H15.8333ZM12.5 11.6667V10.0001H14.1667V11.6667H12.5ZM9.16667 11.6667V10.0001H10.8333V11.6667H9.16667ZM5.83333 13.3334H7.5V15.0001H5.83333V13.3334ZM12.5 15.0001V13.3334H14.1667V15.0001H12.5ZM9.16667 15.0001V13.3334H10.8333V15.0001H9.16667Z"
+                                                          fill="#101010" />
+                                                </g>
+                                            </svg>
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="input with-icon">
+                                        <input id="examduration" name="ExamDuration" type="text" placeholder="Exam Duration" />
+                                        <label>Exam Duration</label>
+                                        <i class="icon sm">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g opacity="0.3">
+                                                    <path d="M5.83333 10.0001H7.5V11.6667H5.83333V10.0001ZM17.5 5.00007V16.6667C17.5 17.5834 16.75 18.3334 15.8333 18.3334H4.16667C3.24167 18.3334 2.5 17.5834 2.5 16.6667L2.50833 5.00007C2.50833 4.08341 3.24167 3.33341 4.16667 3.33341H5V1.66675H6.66667V3.33341H13.3333V1.66675H15V3.33341H15.8333C16.75 3.33341 17.5 4.08341 17.5 5.00007ZM4.16667 6.66674H15.8333V5.00007H4.16667V6.66674ZM15.8333 16.6667V8.33341H4.16667V16.6667H15.8333ZM12.5 11.6667V10.0001H14.1667V11.6667H12.5ZM9.16667 11.6667V10.0001H10.8333V11.6667H9.16667ZM5.83333 13.3334H7.5V15.0001H5.83333V13.3334ZM12.5 15.0001V13.3334H14.1667V15.0001H12.5ZM9.16667 15.0001V13.3334H10.8333V15.0001H9.16667Z"
+                                                          fill="#101010" />
+                                                </g>
+                                            </svg>
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-4">
+                                    <div class="input with-icon mt-2">
+                                        <select name="Level" asp-items="@ViewBag.ExamTypes">
+                                            <option disabled selected>Level</option>
+                                        </select>
+                                        <label>Level</label>
+                                        <i class="icon sm">
+                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <g opacity="0.3">
+                                                    <path d="M6.17833 7.15332L10 10.975L13.8217 7.15332L15 8.33165L10 13.3317L5 8.33165L6.17833 7.15332Z"
+                                                          fill="#101010" />
+                                                </g>
+                                            </svg>
+                                        </i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-divider">
+                                <span>Payment</span>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="row" style="justify-content: space-between; flex-wrap: nowrap;">
+                                        <div class="col-md-8">
+                                            <strong>FREE or PAID</strong>
+                                            <p>Check the box if you'll be responsible for the payment</p>
+                                        </div>
+                                        <div class="col-md-4 margintop30" style="text-align: right;">
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-secondary active" style="padding: 5px">
+                                                    <input type="radio" name="IsPaid" id="option1" value="True" checked> Free
+                                                </label>
+                                                <label class="btn btn-secondary" style="padding: 5px">
+                                                    <input type="radio" name="IsPaid" id="option2" value="False"> Paid
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+                                    <div class="input with-icon">
+                                        <input class="text" type="number" id="appno" name="ApplicantsNumber" required placeholder="No. of Applicants" data-toggle="tooltip" data-placement="bottom" title="No. of applicant to be awarded" />
+                                        <label>No. of Applicants</label>
+                                        <i class="icon sm">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path fill-rule="evenodd" d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                                            </svg>
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-3">
+
+                                    <div class="input with-icon">
+                                        <input class="text" type="text" id="amteach" required name="AmountperEach" placeholder="Amount for Each" data-toggle="tooltip" data-placement="bottom" title="Amount offered to each receiver of scholarship" />
+                                        <label>Amount for Each (Naira)</label>
+                                        <i class="icon sm">
+                                            <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cash-stack" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M14 3H1a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1h-1z" />
+                                                <path fill-rule="evenodd" d="M15 5H1v8h14V5zM1 4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H1z" />
+                                                <path d="M13 5a2 2 0 0 0 2 2V5h-2zM3 5a2 2 0 0 1-2 2V5h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 13a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
+                                            </svg>
+                                        </i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mt-3">
+                                <div class="col-sm-12 col-md-4" id="examdependent">
+                                    <div class="input with-icon">
+                                        <input class="text" type="text" name="CutoffPercent" placeholder="Cut-off %" data-toggle="tooltip" data-placement="bottom"
+                                               title="Input the exam cut-off percentage" />
+                                        <label>Cut-off %</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 col-md-8">
+                                    <div class="input with-icon">
+                                        <input class="text" type="text" name="DocumentstoUpload" placeholder="List documents to upload" data-toggle="tooltip" data-placement="bottom"
+                                               title="List all the documents required for this Scholarship. end each with (,) sign " />
+                                        <label>List documents to upload</label>
+                                        <i class="icon sm">
+                                            <svg width="11" height="13" viewBox="0 0 11 13"
+                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M6.75 0.25H1.75C1.05964 0.25 0.5 0.809625 0.5 1.5V11.5C0.5 12.1904 1.05964 12.75 1.75 12.75H9.25C9.94037 12.75 10.5 12.1904 10.5 11.5V4L6.75 0.25ZM6.4375 9V10.875H4.5625V9H3L5.5 6.5L8 9H6.4375ZM6.125 4.625V1.1875L9.5625 4.625H6.125Z"
+                                                      fill="#FBB700" />
+                                            </svg>
+                                        </i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="examdependent" hidden class="test">
+                                <div class="text-divider">
+                                    <span>Test Question</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-4 mb-4">
+                                        <strong>Upload Question</strong>
+                                        <p>Download our template to Add and upload your scholarship exam questions.</p>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 mb-4">
+                                        <a href="~/docs/ExamFile.csv" class="btn btn-outline-secondary p-3">Download Template (csv)</a>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 mb-4">
+                                        <div class="file-upload">
+                                            <div class="file-select">
+                                                <div class="file-select-button" id="fileName">Choose File</div>
+                                                <div class="file-select-name" id="noFile">No file chosen...</div>
+                                                <input type="file" name="ExamQuestionsFile" id="chooseFile">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="examdependent2" hidden>
+                                <div class="text-divider">
+                                    <span>Selection Process</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-4 mb-4">
+                                        <strong>Choose a benefactor selection process</strong>
+                                        <p>Select from the dropdown how you want us to select students that will benefit from your scholarship </p>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 mb-4">
+                                        <select name="SelectionProcess" class="form-control" id="selprocess">
+                                            <option disabled selected> choose selection process</option>
+                                            <option value="1">Hand pick from applicants</option>
+                                            <option value="2">Upload Emails of Benefactors</option>
+                                            <option value="3">Hand Pick from applicants and also Upload Emails</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 mb-4" hidden id="selUpload">
+                                        <a href="~/docs/email.csv" class="btn btn-outline-secondary p-3">Download Template (csv)</a>
+                                    </div>
+                                    <div class="col-sm-12 col-md-4 mb-4" hidden id="selUpload">
+
+                                        <div class="file-upload fp1">
+                                            <div class="file-select">
+                                                <div class="file-select-button" id="fileName ">Choose File</div>
+                                                <div class="file-select-name" id="noFile nf1">No file chosen...</div>
+                                                <input type="file" name="ApplicantsUpload" id="chooseFile cf1">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input with-icon">
+                                <input type="text" placeholder="Total Amount to Pay" data-toggle="tooltip" data-placement="bottom" class=" text col-md-3 form-control" id="totamount" readonly />
+                                <label>Total Amount to Pay</label>
+                            </div>
+                            <input type="submit" class="btn btn-primary mb-3" value="Save and Proceed to payment" style="float: right;" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Loading -->
+            <div class="loading">
+                <div class="la-ball-pulse">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+            <!-- Loading -->
+        </div>
+    </div>
+</section>
+@*<script type="text/javascript">
+    debugger
+    var cleave = new Cleave('#amteach', {
+        numeral: true,
+        numeralThousandsGroupStyle: 'thousand'
+    });
+</script>*@

@@ -1,0 +1,720 @@
+﻿@model FlashMoney.Models.OverviewModel
+
+@{
+    ViewData["Title"] = "Applicant_Single Page";
+    ViewData["Header"] = "Applicant Single";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@section NAV{
+    <div class="content">
+        <ul>
+            <li class="active">
+                <a asp-controller="Admin" asp-action="index">
+                    <i class="icon">
+                        <svg width="24" height="25" viewBox="0 0 24 25" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.3">
+                                <path d="M9 13.2002H15V19.2002H18V10.1767L12 5.69627L6 10.1767V19.2002H9V13.2002ZM3.98438 21.2002V9.20019L12 3.2002L20.0156 9.20019V21.2002H3.98438Z"
+                                      fill="#2F1343" />
+                            </g>
+                        </svg>
+                    </i>
+                    <span>Overview</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="student">
+                    <i class="icon">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-file-person" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4z" />
+                            <path d="M13.784 14c-.497-1.27-1.988-3-5.784-3s-5.287 1.73-5.784 3h11.568z" />
+                            <path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+                        </svg>
+                    </i>
+                    <span>Student</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="Sponsor">
+                    <i class="icon">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-person-badge" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M12 1H4a1 1 0 0 0-1 1v11.755S4 12 8 12s5 1.755 5 1.755V2a1 1 0 0 0-1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H4z" />
+                            <path fill-rule="evenodd" d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM6 2.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </i>
+                    <span>Sponsor</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="Scholarship">
+                    <i class="icon">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-journal-album" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 1h8a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2h1a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1H2a2 2 0 0 1 2-2z" />
+                            <path d="M2 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1H2zm3-6.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5h-5a.5.5 0 0 1-.5-.5v-5z" />
+                            <path fill-rule="evenodd" d="M6 11.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5z" />
+                        </svg>
+                    </i>
+                    <span>Scholarship</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="Subscription">
+                    <i class="icon">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-cash-stack" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 3H1a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1h-1z" />
+                            <path fill-rule="evenodd" d="M15 5H1v8h14V5zM1 4a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V5a1 1 0 0 0-1-1H1z" />
+                            <path d="M13 5a2 2 0 0 0 2 2V5h-2zM3 5a2 2 0 0 1-2 2V5h2zm10 8a2 2 0 0 1 2-2v2h-2zM3 13a2 2 0 0 0-2-2v2h2zm7-4a2 2 0 1 1-4 0 2 2 0 0 1 4 0z" />
+                        </svg>
+                    </i>
+                    <span>Subscription</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="Leaderboard">
+                    <i class="icon">
+                        <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-award" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" d="M9.669.864L8 0 6.331.864l-1.858.282-.842 1.68-1.337 1.32L2.6 6l-.306 1.854 1.337 1.32.842 1.68 1.858.282L8 12l1.669-.864 1.858-.282.842-1.68 1.337-1.32L13.4 6l.306-1.854-1.337-1.32-.842-1.68L9.669.864zm1.196 1.193l-1.51-.229L8 1.126l-1.355.702-1.51.229-.684 1.365-1.086 1.072L3.614 6l-.25 1.506 1.087 1.072.684 1.365 1.51.229L8 10.874l1.356-.702 1.509-.229.684-1.365 1.086-1.072L12.387 6l.248-1.506-1.086-1.072-.684-1.365z" />
+                            <path d="M4 11.794V16l4-1 4 1v-4.206l-2.018.306L8 13.126 6.018 12.1 4 11.794z" />
+                        </svg>
+                    </i>
+                    <span>Leaderboard</span>
+                </a>
+            </li>
+            <li>
+                <a asp-controller="Admin" asp-action="Settings">
+                    <i class="icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <g opacity="0.3">
+                                <path d="M12.0003 8.00048C14.2094 8.00048 16.0003 9.79134 16.0003 12.0005C16.0003 14.2096 14.2094 16.0005 12.0003 16.0005C9.79115 16.0005 8.00029 14.2096 8.00029 12.0005C8.00029 9.79134 9.79115 8.00048 12.0003 8.00048ZM12.0003 10.0005C10.8957 10.0005 10.0003 10.8959 10.0003 12.0005C10.0003 13.1051 10.8957 14.0005 12.0003 14.0005C13.1049 14.0005 14.0003 13.1051 14.0003 12.0005C14.0003 10.8959 13.1049 10.0005 12.0003 10.0005ZM9.99967 21.9985C9.74967 21.9985 9.54369 21.8156 9.5057 21.5775L9.1307 18.9276C8.52169 18.6755 7.95667 18.3405 7.44068 17.9445L4.95166 18.9475C4.72569 19.0345 4.46367 18.9465 4.33969 18.7306L2.33969 15.2665C2.21469 15.0505 2.26966 14.7805 2.45769 14.6276L4.56969 12.9745L4.49968 11.9985L4.56969 11.0226L2.45769 9.36848C2.26966 9.21655 2.21469 8.94653 2.33969 8.73054L4.33969 5.26652C4.46367 5.05053 4.72569 4.96256 4.95166 5.04955L7.43968 6.05257C7.95567 5.65657 8.52067 5.32153 9.1307 5.06852L9.5057 2.4196C9.54369 2.18148 9.74967 1.99854 9.99967 1.99854L14.0009 2.00049C14.2509 2.00049 14.4569 2.18344 14.4949 2.42155L14.8699 5.07047C15.4799 5.32348 16.0449 5.65852 16.5609 6.05452L19.0489 5.05151C19.2749 4.96451 19.5369 5.05248 19.6609 5.26846L21.6609 8.73249C21.7859 8.94848 21.7309 9.2185 21.5429 9.37043L19.4309 11.0245L19.5009 12.0005L19.4309 12.9765L21.5429 14.6296C21.7309 14.7825 21.7859 15.0525 21.6609 15.2685L19.6609 18.7325C19.5369 18.9485 19.2749 19.0365 19.0489 18.9495L16.5599 17.9465C16.0439 18.3425 15.4789 18.6775 14.8699 18.9295L14.4949 21.5794C14.4569 21.8176 14.2509 22.0005 14.0009 22.0005L9.99967 21.9985ZM11.2503 4.0005L10.8843 6.61377C9.68292 6.86137 8.62463 7.50078 7.84895 8.39254L5.43814 7.35242L4.68814 8.65146L6.80101 10.2029C6.39926 11.3677 6.40005 12.6406 6.80337 13.8049L4.68493 15.3609L5.43493 16.6599L7.85559 15.6161C8.62862 16.5015 9.68077 17.137 10.8748 17.3853L11.2439 20.0174L12.7567 20.0194L13.1258 17.3872C14.3198 17.1389 15.372 16.5034 16.145 15.618L18.5657 16.6619L19.3157 15.3628L17.1972 13.8069C17.6005 12.6425 17.6013 11.3697 17.1996 10.2049L19.3124 8.65341L18.5624 7.35437L16.1516 8.39448C15.3759 7.50273 14.3177 6.86332 13.1163 6.61572L12.7503 4.00245L11.2503 4.0005Z"
+                                      fill="#2F1343" />
+                            </g>
+                        </svg>
+
+                    </i>
+                    <span>Settings</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="./Applicant.html">Applicant</a></li>
+        <li class="breadcrumb-item"><a href="./ApplicantList.html">Applicant List</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Applicant Profile</li>
+    </ol>
+</nav>
+<section class="content history  animated fadeInUp fast delay-1">
+    <div class="container">
+        <meta itemprop="birthDate" content="1990-03-20">
+        <meta itemprop="url" content="https://krasin.in.ua">
+        <meta itemprop="email" content="mailto:kirillkrasin@gmail.com">
+        <div class="profile-wrapper container">
+            <div class="row">
+                <div class="col-md-6 leften">
+                    <img class="user-photo" itemprop="image" src="./assets/img/png/raph.png" style="height: 350px;">
+                </div>
+                <div class="col-md-6 righten text-center">
+                    <h3 itemprop="name">Ogunkunle Rahmon</h3><!-- Name -->
+                    <span>Raymondklein49@gmail.com</span><!-- Job -->
+                    <span> 08123486864</span>
+                    <hr>
+                    <div class="links">
+                        <p>Test Score  <strong>  80%</strong></p>
+                    </div>
+                    <hr>
+                    <div class="phone">
+                        <div class="text-divider">
+                            <span>Required Documents</span>
+                        </div>
+                        <p> <span class="file">ID-Card.pdf | <em>100kb</em></span></p>
+                        <p> <span class="file">ssce.pdf | <em>80kb</em></span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Modals -->
+<section class="modals">
+    <!-- Modal: Fund Wallet -->
+    <div class="modal fade" id="modal-fund-wallet" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="card form-card">
+                    <!-- Loading  -->
+                    <div class="form-section loading">
+                        <div class="la-ball-pulse">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+
+                    <!-- Success & Error -->
+                    <div class="form-section alert sub success">
+                        <div class="head">
+                            <h4>Fund Wallet</h4>
+                        </div>
+                        <img src="./assets/img/png/alert-success.png" class="success-img" />
+                        <img src="./assets/img/png/alert-error.png" class="error-img" />
+
+                        <h3>Funds Wallet Successful!</h3>
+                        <p>
+                            <strong>₦50,000</strong> has been added to your wallet, click continue to perform other
+                            transactions
+                        </p>
+
+                        <a class="btn btn-primary" data-dismiss="modal">Continue</a>
+                    </div>
+
+                    <!-- Funding Options -->
+                    <div class="form-section fund-trn-recipient-option patterned active" data-default="true">
+                        <div class="head sub">
+                            <a href="#" class="btn btn-link" data-dismiss="modal">
+                                <i class="icon auto">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 6.61564V8.42502H3.98955L9.49477 13.4055L8.08057 14.6849L0.161133 7.52033L8.08057 0.355713L9.49477 1.63513L3.98955 6.61564H16Z"
+                                              fill="#5D2684" />
+                                    </svg>
+                                </i>
+                            </a>
+                            <h4>Test Setup</h4>
+                        </div>
+                        <form>
+                            <p>Select your hightest qualification to </p>
+                            <div class="select-list">
+                                <div class="item form-link" data-link="wallet-add-card">
+                                    <i class="icon auto">
+                                        <svg width="16" height="22" viewBox="0 0 16 22" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M14 9.5H2C1.46957 9.5 0.960859 9.71071 0.585786 10.0858C0.210714 10.4609 0 10.9696 0 11.5V19.5C0 20.0304 0.210714 20.5391 0.585786 20.9142C0.960859 21.2893 1.46957 21.5 2 21.5H14C14.5304 21.5 15.0391 21.2893 15.4142 20.9142C15.7893 20.5391 16 20.0304 16 19.5V11.5C16 10.9696 15.7893 10.4609 15.4142 10.0858C15.0391 9.71071 14.5304 9.5 14 9.5ZM14 19.5H2V15.5H14V19.5ZM14 13.5H2V11.5H14V13.5ZM13 3.5V8.5H11.5V5H5.88L8.3 7.43L7.24 8.5L3 4.25L7.24 0L8.3 1.07L5.88 3.5H13Z"
+                                                  fill="#FBB700" />
+                                        </svg>
+                                    </i>
+                                    <p>
+                                        <strong>FLSC Test</strong>
+                                        <span class="ellipsis">First Leaving School Certificate Test</span>
+                                    </p>
+                                    <i class="icon auto arrow">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.333194 7.83343V6.16676L10.3419 6.16676L5.75419 1.57909L6.93269 0.400596L13.5322 7.00009L6.93269 13.5996L5.75419 12.4211L10.3419 7.83343L0.333194 7.83343Z"
+                                                  fill="#2F1343" />
+                                        </svg>
+                                    </i>
+                                </div>
+                                <div class="item form-link" data-link="wallet-ussd">
+                                    <i class="icon auto">
+                                        <svg width="9" height="20" viewBox="0 0 9 20" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M7 0C6.73478 0 6.48043 0.105357 6.29289 0.292893C6.10536 0.48043 6 0.734784 6 1V4H2C0.89 4 0 4.89 0 6V18C0 19.11 0.89 20 2 20H7C8.11 20 9 19.11 9 18V6C9 5.26 8.6 4.62 8 4.28V1C8 0.734784 7.89464 0.48043 7.70711 0.292893C7.51957 0.105357 7.26522 0 7 0ZM2 6H7V11H2V6ZM2 13H3V14H2V13ZM4 13H5V14H4V13ZM6 13H7V14H6V13ZM2 15H3V16H2V15ZM4 15H5V16H4V15ZM6 15H7V16H6V15ZM2 17H3V18H2V17ZM4 17H5V18H4V17ZM6 17H7V18H6V17Z"
+                                                  fill="#FBB700" />
+                                        </svg>
+                                    </i>
+                                    <p>
+                                        <strong>SSCE Test</strong>
+                                        <span class="ellipsis">Secondary School Certificate Test</span>
+                                    </p>
+                                    <i class="icon auto arrow">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.333194 7.83343V6.16676L10.3419 6.16676L5.75419 1.57909L6.93269 0.400596L13.5322 7.00009L6.93269 13.5996L5.75419 12.4211L10.3419 7.83343L0.333194 7.83343Z"
+                                                  fill="#2F1343" />
+                                        </svg>
+                                    </i>
+                                </div>
+                                <div class="item form-link" data-link="wallet-bank-trn">
+                                    <i class="icon auto">
+                                        <svg width="20" height="16" viewBox="0 0 20 16" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M13 10V7H16V5L20 8.5L16 12V10H13ZM12 3.7V5H0V3.7L6 0L12 3.7ZM5 6H7V11H5V6ZM1 6H3V11H1V6ZM11 6V8.5L9 10.3V6H11ZM7.1 12L6.5 12.5L8.2 14H0V12H7.1ZM15 11V14H12V16L8 12.5L12 9V11H15Z"
+                                                  fill="#FBB700" />
+                                        </svg>
+                                    </i>
+                                    <p>
+                                        <strong>JAMB Test</strong>
+                                        <span class="ellipsis">Joint Admissions and Matriculations Board Test</span>
+                                    </p>
+                                    <i class="icon auto arrow">
+                                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.333194 7.83343V6.16676L10.3419 6.16676L5.75419 1.57909L6.93269 0.400596L13.5322 7.00009L6.93269 13.5996L5.75419 12.4211L10.3419 7.83343L0.333194 7.83343Z"
+                                                  fill="#2F1343" />
+                                        </svg>
+                                    </i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- USSD Option -->
+                    <div class="form-section wallet-ussd">
+                        <div class="head sub">
+                            <a href="#" class="btn btn-link form-link" data-link="wallet-add-card">
+                                <i class="icon auto">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 6.61564V8.42502H3.98955L9.49477 13.4055L8.08057 14.6849L0.161133 7.52033L8.08057 0.355713L9.49477 1.63513L3.98955 6.61564H16Z"
+                                              fill="#5D2684" />
+                                    </svg>
+                                </i>
+                            </a>
+                            <h4>Fund Wallet: USSD</h4>
+                        </div>
+                        <form>
+                            <p>Add funds to your wallet so you can perform tarnsactions with</p>
+
+                            <div class="input with-icon left">
+                                <i class="icon auto">
+                                    <svg width="12" height="15" viewBox="0 0 12 15" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.4"
+                                              d="M1.7602 15.0002V9.86022H0.200195V8.58022H1.7602V6.94022H0.200195V5.66022H1.7602V0.720215H3.8402L5.7402 5.66022H8.1002V0.720215H9.6802V5.66022H11.2402V6.94022H9.6802V8.58022H11.2402V9.86022H9.6802V15.0002H7.5802L5.6802 9.86022H3.3202V15.0002H1.7602ZM3.2802 5.66022H4.1202L3.2802 3.18022H3.2002L3.2802 5.66022ZM3.3202 8.58022H5.2002L4.6002 6.94022H3.2802L3.3202 8.58022ZM6.8002 8.58022H8.1402L8.1002 6.94022H6.2002L6.8002 8.58022ZM8.1002 12.1802H8.1802L8.1202 9.86022H7.2802L8.1002 12.1802Z"
+                                              fill="#2F1343" />
+                                    </svg>
+                                </i>
+                                <input class="currency" type="text" placeholder="Amount to Add" />
+                                <label>Amount to Add</label>
+                            </div>
+
+                            <p class="m-0">Select & Copy / Dail USSD Code</p>
+                            <div class="select-list ussd">
+                                <div class="item">
+                                    <p>
+                                        <span>Access Bank</span>
+                                        <strong>*901*1*200*45182930001#</strong>
+                                    </p>
+                                    <a href="tel:*901*1*200*45182930001#">
+                                        <i class="icon auto check">
+                                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17.8333 13.1458C16.5833 13.1458 15.2292 12.9375 14.0833 12.5208H13.7708C13.4583 12.5208 13.25 12.625 13.0417 12.8333L10.75 15.125C7.83333 13.5625 5.33333 11.1667 3.875 8.25L6.16667 5.95833C6.47917 5.64583 6.58333 5.22917 6.375 4.91667C6.0625 3.77083 5.85417 2.41667 5.85417 1.16667C5.85417 0.645833 5.33333 0.125 4.8125 0.125H1.16667C0.645833 0.125 0.125 0.645833 0.125 1.16667C0.125 10.9583 8.04167 18.875 17.8333 18.875C18.3542 18.875 18.875 18.3542 18.875 17.8333V14.1875C18.875 13.6667 18.3542 13.1458 17.8333 13.1458ZM2.20833 2.20833H3.77083C3.875 3.14583 4.08333 4.08333 4.29167 4.91667L3.04167 6.16667C2.625 4.91667 2.3125 3.5625 2.20833 2.20833ZM16.7917 16.7917C15.4375 16.6875 14.0833 16.375 12.8333 15.9583L14.0833 14.7083C14.9167 14.9167 15.8542 15.125 16.7917 15.125V16.7917ZM12.625 0.125V1.6875H16.2708L10.5417 7.41667L11.5833 8.45833L17.3125 2.72917V6.375H18.875V0.125H12.625Z"
+                                                      fill="#6AC895" />
+                                            </svg>
+                                        </i>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <p>
+                                        <span>FCMB Bank</span>
+                                        <strong>*329*200*45182930001#</strong>
+                                    </p>
+                                    <a href="tel:*329*200*45182930001#">
+                                        <i class="icon auto check">
+                                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17.8333 13.1458C16.5833 13.1458 15.2292 12.9375 14.0833 12.5208H13.7708C13.4583 12.5208 13.25 12.625 13.0417 12.8333L10.75 15.125C7.83333 13.5625 5.33333 11.1667 3.875 8.25L6.16667 5.95833C6.47917 5.64583 6.58333 5.22917 6.375 4.91667C6.0625 3.77083 5.85417 2.41667 5.85417 1.16667C5.85417 0.645833 5.33333 0.125 4.8125 0.125H1.16667C0.645833 0.125 0.125 0.645833 0.125 1.16667C0.125 10.9583 8.04167 18.875 17.8333 18.875C18.3542 18.875 18.875 18.3542 18.875 17.8333V14.1875C18.875 13.6667 18.3542 13.1458 17.8333 13.1458ZM2.20833 2.20833H3.77083C3.875 3.14583 4.08333 4.08333 4.29167 4.91667L3.04167 6.16667C2.625 4.91667 2.3125 3.5625 2.20833 2.20833ZM16.7917 16.7917C15.4375 16.6875 14.0833 16.375 12.8333 15.9583L14.0833 14.7083C14.9167 14.9167 15.8542 15.125 16.7917 15.125V16.7917ZM12.625 0.125V1.6875H16.2708L10.5417 7.41667L11.5833 8.45833L17.3125 2.72917V6.375H18.875V0.125H12.625Z"
+                                                      fill="#6AC895" />
+                                            </svg>
+                                        </i>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <p>
+                                        <span>Fidelity Bank</span>
+                                        <strong>*770*45182930001*200#</strong>
+                                    </p>
+                                    <a href="tel:*770*45182930001*200#">
+                                        <i class="icon auto check">
+                                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17.8333 13.1458C16.5833 13.1458 15.2292 12.9375 14.0833 12.5208H13.7708C13.4583 12.5208 13.25 12.625 13.0417 12.8333L10.75 15.125C7.83333 13.5625 5.33333 11.1667 3.875 8.25L6.16667 5.95833C6.47917 5.64583 6.58333 5.22917 6.375 4.91667C6.0625 3.77083 5.85417 2.41667 5.85417 1.16667C5.85417 0.645833 5.33333 0.125 4.8125 0.125H1.16667C0.645833 0.125 0.125 0.645833 0.125 1.16667C0.125 10.9583 8.04167 18.875 17.8333 18.875C18.3542 18.875 18.875 18.3542 18.875 17.8333V14.1875C18.875 13.6667 18.3542 13.1458 17.8333 13.1458ZM2.20833 2.20833H3.77083C3.875 3.14583 4.08333 4.08333 4.29167 4.91667L3.04167 6.16667C2.625 4.91667 2.3125 3.5625 2.20833 2.20833ZM16.7917 16.7917C15.4375 16.6875 14.0833 16.375 12.8333 15.9583L14.0833 14.7083C14.9167 14.9167 15.8542 15.125 16.7917 15.125V16.7917ZM12.625 0.125V1.6875H16.2708L10.5417 7.41667L11.5833 8.45833L17.3125 2.72917V6.375H18.875V0.125H12.625Z"
+                                                      fill="#6AC895" />
+                                            </svg>
+                                        </i>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <p>
+                                        <span>First Bank</span>
+                                        <strong>*894*200*45182930001#</strong>
+                                    </p>
+                                    <a href="tel:*894*200*45182930001#">
+                                        <i class="icon auto check">
+                                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17.8333 13.1458C16.5833 13.1458 15.2292 12.9375 14.0833 12.5208H13.7708C13.4583 12.5208 13.25 12.625 13.0417 12.8333L10.75 15.125C7.83333 13.5625 5.33333 11.1667 3.875 8.25L6.16667 5.95833C6.47917 5.64583 6.58333 5.22917 6.375 4.91667C6.0625 3.77083 5.85417 2.41667 5.85417 1.16667C5.85417 0.645833 5.33333 0.125 4.8125 0.125H1.16667C0.645833 0.125 0.125 0.645833 0.125 1.16667C0.125 10.9583 8.04167 18.875 17.8333 18.875C18.3542 18.875 18.875 18.3542 18.875 17.8333V14.1875C18.875 13.6667 18.3542 13.1458 17.8333 13.1458ZM2.20833 2.20833H3.77083C3.875 3.14583 4.08333 4.08333 4.29167 4.91667L3.04167 6.16667C2.625 4.91667 2.3125 3.5625 2.20833 2.20833ZM16.7917 16.7917C15.4375 16.6875 14.0833 16.375 12.8333 15.9583L14.0833 14.7083C14.9167 14.9167 15.8542 15.125 16.7917 15.125V16.7917ZM12.625 0.125V1.6875H16.2708L10.5417 7.41667L11.5833 8.45833L17.3125 2.72917V6.375H18.875V0.125H12.625Z"
+                                                      fill="#6AC895" />
+                                            </svg>
+                                        </i>
+                                    </a>
+                                </div>
+                                <div class="item">
+                                    <p>
+                                        <span>GTB Bank</span>
+                                        <strong>*737*2*200*45182930001#</strong>
+                                    </p>
+                                    <a href="tel:*737*2*200*45182930001#">
+                                        <i class="icon auto check">
+                                            <svg width="19" height="19" viewBox="0 0 19 19" fill="none"
+                                                 xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M17.8333 13.1458C16.5833 13.1458 15.2292 12.9375 14.0833 12.5208H13.7708C13.4583 12.5208 13.25 12.625 13.0417 12.8333L10.75 15.125C7.83333 13.5625 5.33333 11.1667 3.875 8.25L6.16667 5.95833C6.47917 5.64583 6.58333 5.22917 6.375 4.91667C6.0625 3.77083 5.85417 2.41667 5.85417 1.16667C5.85417 0.645833 5.33333 0.125 4.8125 0.125H1.16667C0.645833 0.125 0.125 0.645833 0.125 1.16667C0.125 10.9583 8.04167 18.875 17.8333 18.875C18.3542 18.875 18.875 18.3542 18.875 17.8333V14.1875C18.875 13.6667 18.3542 13.1458 17.8333 13.1458ZM2.20833 2.20833H3.77083C3.875 3.14583 4.08333 4.08333 4.29167 4.91667L3.04167 6.16667C2.625 4.91667 2.3125 3.5625 2.20833 2.20833ZM16.7917 16.7917C15.4375 16.6875 14.0833 16.375 12.8333 15.9583L14.0833 14.7083C14.9167 14.9167 15.8542 15.125 16.7917 15.125V16.7917ZM12.625 0.125V1.6875H16.2708L10.5417 7.41667L11.5833 8.45833L17.3125 2.72917V6.375H18.875V0.125H12.625Z"
+                                                      fill="#6AC895" />
+                                            </svg>
+                                        </i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="action">
+                                <a class="btn btn-primary form-link" data-link="alert"
+                                   data-option="success">Continue</a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Bank Transfer Option -->
+                    <div class="form-section wallet-bank-trn">
+                        <div class="head sub">
+                            <a href="#" class="btn btn-link form-link" data-link="wallet-authpin">
+                                <i class="icon auto">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 6.61564V8.42502H3.98955L9.49477 13.4055L8.08057 14.6849L0.161133 7.52033L8.08057 0.355713L9.49477 1.63513L3.98955 6.61564H16Z"
+                                              fill="#5D2684" />
+                                    </svg>
+                                </i>
+                            </a>
+                            <h4>Fund Wallet: Bank Transfer</h4>
+                        </div>
+                        <form>
+
+                            <p>Make a transfer into your wallet account using details provided below</p>
+
+                            <div class="summary-card">
+                                <p>
+                                    <span>Account Number</span>
+                                    <strong>08100256910</strong>
+                                </p>
+                                <p>
+                                    <span>Account Name</span>
+                                    <strong>Jerry Ibe</strong>
+                                </p>
+                                <p>
+                                    <span>Bank</span>
+                                    <strong>FCMB</strong>
+                                </p>
+                            </div>
+
+                            <div class="action">
+                                <a class="btn btn-primary form-link" data-link="alert"
+                                   data-option="success">Continue</a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- No Card / Add Card -->
+                    <div class="form-section wallet-add-card patterned">
+                        <div class="head sub">
+                            <a href="#" class="btn btn-link" data-dismiss="modal">
+                                <i class="icon auto">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 6.61564V8.42502H3.98955L9.49477 13.4055L8.08057 14.6849L0.161133 7.52033L8.08057 0.355713L9.49477 1.63513L3.98955 6.61564H16Z"
+                                              fill="#5D2684" />
+                                    </svg>
+                                </i>
+                            </a>
+                            <h4>Fund Wallet</h4>
+                        </div>
+                        <form>
+                            <i class="icon auto">
+                                <svg width="42" height="38" viewBox="0 0 42 38" fill="none"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.789062 3.05332L3.23685 0.62207L37.3335 34.7187L34.9022 37.1665L31.0652 33.3293H6.66568C4.54772 33.3293 2.83234 31.616 2.83234 29.496L2.85153 6.49608C2.85153 6.07928 2.9171 5.6782 3.03854 5.30278L0.789062 3.05332ZM37.3324 10.3294V6.49608H13.9899L10.1566 2.66275H37.3324C39.4503 2.66275 41.1657 4.37617 41.1657 6.49608V29.496C41.1657 30.6431 40.6635 31.6712 39.867 32.3731L36.9899 29.496H37.3324V17.996H25.4899L17.8232 10.3294H37.3324ZM6.66568 10.3294H8.06517L6.66568 8.9299V10.3294ZM6.66568 17.9962V29.496H27.2319L15.7319 17.9962H6.66568Z"
+                                          fill="#FBB700" />
+                                </svg>
+                            </i>
+                            <p>
+                                You dont have bank card attached to your account yet? <br />
+                                A Debit/Credit card is needed to fund your wallet
+                            </p>
+
+                            <a class="btn btn-link form-link" data-link="wallet-amount">
+                                <span>Add New Card</span>
+                                <i class="icon auto">
+                                    <svg width="6" height="9" viewBox="0 0 6 9" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 7.93951L3.43952 4.50001L0 1.0605L1.0605 0L5.56052 4.50001L1.0605 9.00001L0 7.93951Z"
+                                              fill="#5D2684" />
+                                    </svg>
+                                </i>
+                            </a>
+                        </form>
+                    </div>
+
+                    <!-- Enter Amount -->
+                    <div class="form-section wallet-amount">
+                        <div class="head sub">
+                            <a href="#" class="btn btn-link form-link" data-link="wallet-add-card">
+                                <i class="icon auto">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 6.61564V8.42502H3.98955L9.49477 13.4055L8.08057 14.6849L0.161133 7.52033L8.08057 0.355713L9.49477 1.63513L3.98955 6.61564H16Z"
+                                              fill="#5D2684" />
+                                    </svg>
+                                </i>
+                            </a>
+                            <h4>Fund Wallet</h4>
+                        </div>
+                        <form>
+                            <p>Add funds to your wallet so you can perform tarnsactions with</p>
+
+                            <div class="input with-icon left">
+                                <i class="icon auto">
+                                    <svg width="12" height="15" viewBox="0 0 12 15" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path opacity="0.4"
+                                              d="M1.7602 15.0002V9.86022H0.200195V8.58022H1.7602V6.94022H0.200195V5.66022H1.7602V0.720215H3.8402L5.7402 5.66022H8.1002V0.720215H9.6802V5.66022H11.2402V6.94022H9.6802V8.58022H11.2402V9.86022H9.6802V15.0002H7.5802L5.6802 9.86022H3.3202V15.0002H1.7602ZM3.2802 5.66022H4.1202L3.2802 3.18022H3.2002L3.2802 5.66022ZM3.3202 8.58022H5.2002L4.6002 6.94022H3.2802L3.3202 8.58022ZM6.8002 8.58022H8.1402L8.1002 6.94022H6.2002L6.8002 8.58022ZM8.1002 12.1802H8.1802L8.1202 9.86022H7.2802L8.1002 12.1802Z"
+                                              fill="#2F1343" />
+                                    </svg>
+                                </i>
+                                <input class="currency" type="text" placeholder="Amount to Send" />
+                                <label>Amount to Send</label>
+                            </div>
+
+                            <p class="m-0">Select Source:</p>
+                            <div class="select-list">
+                                <div class="item">
+                                    <img src="./assets/img/png/card-master.png" />
+                                    <p>
+                                        <strong>**** **** **** 8210</strong>
+                                        <span class="ellipsis">Expired: 16/23 | Terence A. Pouke</span>
+                                    </p>
+                                    <i class="icon auto check">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21 7.00015L9 19.0001L3.5 13.5001L4.91421 12.0859L9 16.1717L19.5858 5.58594L21 7.00015Z"
+                                                  fill="#6AC895" />
+                                        </svg>
+                                    </i>
+                                </div>
+                                <div class="item">
+                                    <img src="./assets/img/png/card-visa.png" />
+                                    <p>
+                                        <strong>**** **** **** 1216</strong>
+                                        <span class="ellipsis">Expired: 11/20 | Terence A. Pouke</span>
+                                    </p>
+                                    <i class="icon auto check">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21 7.00015L9 19.0001L3.5 13.5001L4.91421 12.0859L9 16.1717L19.5858 5.58594L21 7.00015Z"
+                                                  fill="#6AC895" />
+                                        </svg>
+                                    </i>
+                                </div>
+                                <a class="item link" href="./cards.html">
+                                    <i class="icon auto">
+                                        <svg width="20" height="17" viewBox="0 0 20 17" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M17.4992 11.9998H19.9992V13.6665H17.4992V16.1665H15.8325V13.6665H13.3325V11.9998H15.8325V9.49984H17.4992V11.9998ZM15.832 3.66488V1.99821H2.4987V3.66488H15.832ZM15.832 6.99825H2.4987V11.9982H11.6659V13.6648H2.4987C1.57785 13.6648 0.832031 12.9199 0.832031 11.9982L0.840374 1.99821C0.840374 1.07651 1.57785 0.331543 2.4987 0.331543H15.832C16.7529 0.331543 17.4987 1.07651 17.4987 1.99821V7.83317H15.832V6.99825Z"
+                                                  fill="#FBB700" />
+                                        </svg>
+                                    </i>
+                                    <p>
+                                        <strong>Add New Debit/Credit Card</strong>
+                                        <span class="ellipsis">mastercard, visa, etc..</span>
+                                    </p>
+                                    <i class="icon auto arrow">
+                                        <svg width="7" height="11" viewBox="0 0 7 11" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.154297 9.82022L3.97599 5.99855L0.154297 2.17687L1.33263 0.998535L6.33265 5.99855L1.33263 10.9986L0.154297 9.82022Z"
+                                                  fill="#101010" />
+                                        </svg>
+                                    </i>
+                                </a>
+                            </div>
+
+
+
+                            <div class="action">
+                                <a class="btn btn-primary form-link" data-link="wallet-authpin"
+                                   data-option="load">Continue</a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Auth PIN & Others -->
+                    <div class="form-section wallet-authpin ">
+                        <div class="head sub">
+                            <a href="#" class="btn btn-link form-link" data-link="wallet-amount">
+                                <i class="icon auto">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 6.61564V8.42502H3.98955L9.49477 13.4055L8.08057 14.6849L0.161133 7.52033L8.08057 0.355713L9.49477 1.63513L3.98955 6.61564H16Z"
+                                              fill="#5D2684" />
+                                    </svg>
+                                </i>
+                            </a>
+                            <h4>Fund Wallet</h4>
+                        </div>
+                        <form>
+                            <div class="summary-card">
+                                <div class="avater">
+                                    <i class="icon auto">
+                                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M23.2528 19.4967V20.7483C23.2528 22.1217 22.123 23.2513 20.7497 23.2513H3.25117C1.86523 23.2513 0.748047 22.1217 0.748047 20.7483V3.24982C0.748047 1.87638 1.86523 0.74707 3.25117 0.74707H20.7497C22.123 0.74707 23.2528 1.87638 23.2528 3.24982V4.50138H12.0043C10.6122 4.50138 9.50117 5.62482 9.50117 6.99669V17.0013C9.50117 18.3748 10.6122 19.4967 12.0043 19.4967H23.2528ZM12.0043 17.0013H24.5043V6.99669H12.0043V17.0013ZM17.0027 13.8763C15.9653 13.8763 15.1293 13.0404 15.1293 12.0029C15.1293 10.9639 15.9653 10.1217 17.0027 10.1217C18.0403 10.1217 18.8762 10.9639 18.8762 12.0029C18.8762 13.0404 18.0403 13.8763 17.0027 13.8763Z"
+                                                  fill="#5D2684" />
+                                        </svg>
+                                    </i>
+                                    <p>
+                                        <strong>₦50,000</strong>
+                                        <span>Amount to be add to your wallet</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <p class="m-0">Select how you want to authorize this transaction to:</p>
+                            <div class="select-list">
+                                <div class="item form-link" data-link="wallet-otptoken">
+                                    <i class="icon auto">
+                                        <svg width="13" height="27" viewBox="0 0 13 27" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M9.64037 0.424805C8.93011 0.424805 8.35832 0.9966 8.35832 1.70686V5.55301H3.23012C1.80959 5.55301 0.666016 6.6966 0.666016 8.11711V23.5017C0.666016 24.9222 1.80959 26.0658 3.23012 26.0658H9.64037C11.0609 26.0658 12.2045 24.9222 12.2045 23.5017V8.11711C12.2045 7.16698 11.6863 6.34916 10.9224 5.90609V1.70686C10.9224 0.9966 10.3506 0.424805 9.64037 0.424805ZM3.23012 8.11711H9.64037V14.5274H3.23012V8.11711ZM3.23012 17.0915H4.51217V18.3735H3.23012V17.0915ZM5.79422 17.0915H7.07627V18.3735H5.79422V17.0915ZM8.35832 17.0915H9.64037V18.3735H8.35832V17.0915ZM3.23012 19.6556H4.51217V20.9376H3.23012V19.6556ZM5.79422 19.6556H7.07627V20.9376H5.79422V19.6556ZM8.35832 19.6556H9.64037V20.9376H8.35832V19.6556ZM3.23012 22.2197H4.51217V23.5017H3.23012V22.2197ZM5.79422 22.2197H7.07627V23.5017H5.79422V22.2197ZM8.35832 22.2197H9.64037V23.5017H8.35832V22.2197Z"
+                                                  fill="#FBB700" />
+                                        </svg>
+                                    </i>
+                                    <p>
+                                        <strong>Send OTP to Mobile Phone</strong>
+                                        <span class="ellipsis">A code will be sent to +234**********59 </span>
+                                    </p>
+                                    <i class="icon auto check">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21 7.00015L9 19.0001L3.5 13.5001L4.91421 12.0859L9 16.1717L19.5858 5.58594L21 7.00015Z"
+                                                  fill="#6AC895" />
+                                        </svg>
+                                    </i>
+                                </div>
+                                <div class="item form-link" data-link="wallet-transpin">
+                                    <i class="icon auto">
+                                        <svg width="17" height="20" viewBox="0 0 17 20" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M8.18182 0L0 3.63636V9.09091C0 14.1364 3.49091 18.8545 8.18182 20C12.8727 18.8545 16.3636 14.1364 16.3636 9.09091V3.63636L8.18182 0ZM8.18182 5.45455C9.45455 5.45455 10.728 6.45455 10.728 7.72727V9.09091C11.2735 9.09091 11.8182 9.63709 11.8182 10.2735V13.4553C11.8182 14.0007 11.272 14.5455 10.6356 14.5455H5.63565C5.0902 14.5455 4.54545 13.9993 4.54545 13.3629V10.1811C4.54545 9.63564 5.0902 9.09091 5.63565 9.09091V7.72727C5.63565 6.45455 6.90909 5.45455 8.18182 5.45455ZM8.18182 6.54473C7.45455 6.54473 6.81818 7 6.81818 7.72727V9.09091H9.54545V7.72727C9.54545 7 8.90909 6.54473 8.18182 6.54473Z"
+                                                  fill="#FBB700" />
+                                        </svg>
+                                    </i>
+                                    <p>
+                                        <strong>Use Transaction PIN</strong>
+                                        <span class="ellipsis">A four digit PIN for 20k+ transactions</span>
+                                    </p>
+                                    <i class="icon auto check">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M21 7.00015L9 19.0001L3.5 13.5001L4.91421 12.0859L9 16.1717L19.5858 5.58594L21 7.00015Z"
+                                                  fill="#6AC895" />
+                                        </svg>
+                                    </i>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- OTP Token -->
+                    <div class="form-section wallet-otptoken">
+                        <div class="head sub">
+                            <a href="#" class="btn btn-link form-link" data-link="wallet-authpin">
+                                <i class="icon auto">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 6.61564V8.42502H3.98955L9.49477 13.4055L8.08057 14.6849L0.161133 7.52033L8.08057 0.355713L9.49477 1.63513L3.98955 6.61564H16Z"
+                                              fill="#5D2684" />
+                                    </svg>
+                                </i>
+                            </a>
+                            <h4>Fund Wallet</h4>
+                        </div>
+                        <form>
+                            <div class="summary-card">
+                                <div class="avater">
+                                    <i class="icon auto">
+                                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M23.2528 19.4967V20.7483C23.2528 22.1217 22.123 23.2513 20.7497 23.2513H3.25117C1.86523 23.2513 0.748047 22.1217 0.748047 20.7483V3.24982C0.748047 1.87638 1.86523 0.74707 3.25117 0.74707H20.7497C22.123 0.74707 23.2528 1.87638 23.2528 3.24982V4.50138H12.0043C10.6122 4.50138 9.50117 5.62482 9.50117 6.99669V17.0013C9.50117 18.3748 10.6122 19.4967 12.0043 19.4967H23.2528ZM12.0043 17.0013H24.5043V6.99669H12.0043V17.0013ZM17.0027 13.8763C15.9653 13.8763 15.1293 13.0404 15.1293 12.0029C15.1293 10.9639 15.9653 10.1217 17.0027 10.1217C18.0403 10.1217 18.8762 10.9639 18.8762 12.0029C18.8762 13.0404 18.0403 13.8763 17.0027 13.8763Z"
+                                                  fill="#5D2684" />
+                                        </svg>
+                                    </i>
+                                    <p>
+                                        <strong>₦50,000</strong>
+                                        <span>Amount to be add to your wallet</span>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <p>A <strong>six digit token (OTP)</strong> was sent to you, enter token below</p>
+
+                            <div class="input-pin x6">
+                                <input type="text" placeholder="*" />
+                                <input type="text" placeholder="*" />
+                                <input type="text" placeholder="*" />
+                                <input type="text" placeholder="*" />
+                                <input type="text" placeholder="*" />
+                                <input type="text" placeholder="*" />
+                            </div>
+                            <p>Didn't get code <a href="#" class="btn btn-link text-yellow p-0">Resend</a></p>
+                            <div class="action">
+                                <a class="btn btn-primary form-link" data-link="alert"
+                                   data-option="success">Continue</a>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Transaction PIN -->
+                    <div class="form-section wallet-transpin">
+                        <div class="head sub">
+                            <a href="#" class="btn btn-link form-link" data-link="wallet-authpin">
+                                <i class="icon auto">
+                                    <svg width="16" height="15" viewBox="0 0 16 15" fill="none"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M16 6.61564V8.42502H3.98955L9.49477 13.4055L8.08057 14.6849L0.161133 7.52033L8.08057 0.355713L9.49477 1.63513L3.98955 6.61564H16Z"
+                                              fill="#5D2684" />
+                                    </svg>
+                                </i>
+                            </a>
+                            <h4>Flash Money</h4>
+                        </div>
+                        <form>
+                            <div class="summary-card">
+                                <div class="avater">
+                                    <i class="icon auto">
+                                        <svg width="25" height="24" viewBox="0 0 25 24" fill="none"
+                                             xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M23.2528 19.4967V20.7483C23.2528 22.1217 22.123 23.2513 20.7497 23.2513H3.25117C1.86523 23.2513 0.748047 22.1217 0.748047 20.7483V3.24982C0.748047 1.87638 1.86523 0.74707 3.25117 0.74707H20.7497C22.123 0.74707 23.2528 1.87638 23.2528 3.24982V4.50138H12.0043C10.6122 4.50138 9.50117 5.62482 9.50117 6.99669V17.0013C9.50117 18.3748 10.6122 19.4967 12.0043 19.4967H23.2528ZM12.0043 17.0013H24.5043V6.99669H12.0043V17.0013ZM17.0027 13.8763C15.9653 13.8763 15.1293 13.0404 15.1293 12.0029C15.1293 10.9639 15.9653 10.1217 17.0027 10.1217C18.0403 10.1217 18.8762 10.9639 18.8762 12.0029C18.8762 13.0404 18.0403 13.8763 17.0027 13.8763Z"
+                                                  fill="#5D2684" />
+                                        </svg>
+                                    </i>
+                                    <p>
+                                        <strong>₦50,000</strong>
+                                        <span>Amount to be add to your wallet</span>
+                                    </p>
+                                </div>
+                            </div>
+
+
+                            <p>Enter your <strong>Transaction PIN</strong> Below</p>
+
+                            <div class="input-pin x4">
+                                <input type="text" placeholder="*" />
+                                <input type="text" placeholder="*" />
+                                <input type="text" placeholder="*" />
+                                <input type="text" placeholder="*" />
+                            </div>
+                            <div class="action">
+                                <a class="btn btn-primary form-link" data-link="alert"
+                                   data-option="error">Continue</a>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
